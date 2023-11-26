@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200&family=Montserrat+Alternates&display=swap');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Kaushan+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --Inter: 'Inter', sans-serif;
+    --Kaushan: 'Kaushan Script', cursive;
+    --Mont: 'Montserrat', sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 .navbar-brand{
     font-family: 'Advent Pro', sans-serif;
     font-weight: bold;
@@ -81,13 +93,13 @@ border-radius: 5px;
 .btn-brand{
     color: #fff;
     font-weight: 500;
-    border-color: #603ce6; 
-    background-color:  #603ce6; 
+    border-color: #E48F45; 
+    background-color:  #E48F45; 
     border-radius: 5px;
 }
 .btn-brand:hover{
-    border-color: #603ce6; 
-    background-color:  #603ce6; 
+    border-color: #994D1C; 
+    background-color:  #994D1C; 
     color: #fff;
 }
 .d-flex{
@@ -102,8 +114,8 @@ border-radius: 5px;
     border-radius: 5px;
 }
 .btn-signup:hover{
-    border-color: #603ce6; 
-    background-color:  #603ce6; 
+    border-color: #994D1C; 
+    background-color:  #994D1C; 
     color: #fff;
 }
 #box{
@@ -118,28 +130,27 @@ border-radius: 5px;
 
 }
 .btn-contactsecondary:hover{
-    border-color: #603ce6; 
-    background-color:  #603ce6; 
+    border-color: #994D1C; 
+    background-color:  #994D1C; 
     color: #fff;
 }
 
 
 /*slider*/
 .slide-1{
-    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/h4.jpg);
+    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/co1.jpg);
 }
 .slide-2{
-    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/h2.jpg);
+    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/co2.jpg);
 }
 .slide-3{
-    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/h3.jpg);
+    background: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)), url(../Images/co3.jpg);
 }
 .bg-cover{
     background-position: center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-    border-bottom-left-radius: 20% 30px; 
-  border-bottom-right-radius: 20% 30px; 
+  
 }
 .carousel-control-prev,
 .carousel-control-next{
@@ -384,6 +395,191 @@ margin-bottom:50px;
 
 
 
+/* menu --------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.menu{
+    margin: 2rem 0;
+}
+.menu-container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+}
+
+.food-img img{
+    width: 100%;
+    display: block;
+}
+.menu-head{
+    text-align: center;
+}
+.menu-head h2{
+    font-family: var(--Kaushan);
+    font-size: 2.6rem;
+}
+.menu-head p{
+    font-weight: 300;
+    padding: 1.8rem 0;
+}
+.menu-btns{
+    padding: 0.6rem 0;
+    display: flex;
+    justify-content: center;
+}
+.menu-btn{
+    font-family: var(--Inter);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: #000000;
+    display: block;
+    margin: 0 1rem;
+    cursor: pointer;
+    outline: 0;
+    transition: opacity 0.4s ease-out;
+}
+.menu-btn::after{
+    content: "";
+    display: block;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #070707;
+    margin-top: 0.5rem;
+    width: 0;
+    transition: width 0.4s ease-out;
+}
+.menu-btn:hover::after{
+    width: 100%;
+}
+.menu-btn:hover{
+    opacity: 0.8;
+}
+
+.active-btn{
+    color: #080808;
+}
+.food-items{
+    margin: 2rem 0;
+}
+.food-item{
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    color: #000;
+    margin: 0.6rem 0;
+    box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
+    display: flex;
+    animation: fadeIn 2s;
+}
+
+.food-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+.food-img img{
+    border-radius: 4px;
+}
+.food-content{
+    padding: 1rem;
+}
+.food-name{
+    font-family: var(--Inter);
+    color: #ff9505;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.line{
+    width: 100px;
+    height: 3px;
+    background: #ff9505;
+}
+.food-price{
+    padding: 0.4rem 0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+.rating{
+    display: flex;
+    list-style: none;
+}
+.rating .fa-star{
+    margin-right: 0.4rem;
+    color: #44355b;
+}
+.category{
+    padding-top: 0.2rem;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: var(--Inter);
+}
+.category span{
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+/* menu --------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*footer*/
 footer{
@@ -504,9 +700,6 @@ footer{
 
 
 
-
-
-
 /********** Responsive Design ********/
 @media(max-width:964px)
 {
@@ -589,5 +782,41 @@ footer{
       .map{
         height: 400px;
       }
-      
+
+
+  
+}
+
+
+
+@media screen and (min-width: 600px){
+    .food-item{
+        display: grid;
+        grid-template-columns: 25% auto;
+        align-items: center;
+        padding: 1rem;
+        column-gap: 1rem;
+    }
+    .food-content{
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .menu-head p{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .menu-head p{
+        width: 50%;
+    }
+    .food-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
 }

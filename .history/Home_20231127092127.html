@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="images/webicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>BEAN to CUP</title>
+</head>
+<body>
+ 
+<!-- NAvvar-->
+<nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">BEAN TO CUP<i style="margin-left: 10px;" class="fas fa-mug-hot" aria-hidden="true"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#carouselExampleDark">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#aboutus">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Services">MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#FAQ">REVIEWS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Contact">CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Contact">BLOGS</a>
+          </li>
+         
+        </ul>
+        <form class="d-flex" id="btn-phonenavbar">
+    <button class="btn btn-brand" type="button" name="login" onclick="redirectToLogin()">Login</button>
+    <button class="btn-signup" type="button" onclick="redirectToSignUp()">Sign up</button>
+</form>
+<script>
+    function redirectToLogin() {
+        window.location.href = "Loginsystem/login.php";
+    }
+
+    function redirectToSignUp() {
+        // Replace "yourSignUpFile.php" with the actual filename you want to redirect to
+        window.location.href = "Loginsystem/login.php";
+    }
+</script>
+
+        
+      </div>
+    </div>
+  </nav>
+
+<!--home copntent-->
+<div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+
+
+
+      <div class="carousel-item text-center bg-cover vh-100 active slide-1" data-bs-interval="3000">
+
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+            <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+            <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" class="btn btn-brand">EXPLORE</a>
+            <a href="#" class="btn btn-secondary">ORDER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="carousel-item text-center bg-cover vh-100 slide-2 " data-bs-interval="2000">
+        
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+            <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" class="btn btn-brand">EXPLORE</a>
+            <a href="#" class="btn btn-secondary" id="transbtn">ORDER</a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="carousel-item text-center bg-cover vh-100 slide-3"data-bs-interval="1000">
+
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+              <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" class="btn btn-brand">EXPLORE</a>
+            <a href="#" class="btn btn-secondary">ORDER</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+<!--About Section-->
+
+<div class="Heading" id="aboutus">
+<h1>About Us</h1>
+<p>"Sip, savor, and elevate your moments with our expertly crafted coffees"</p>
+</div>
+<div class="abt-container">
+<section class="about">
+  <div class="about-images">
+<img style="border-radius: 20px;" src="Images/co4.jpg">
+  </div>
+<div class="about-content">
+  <h2>Organic products made with love.
+    That's what you get from us.</h2>
+<p>Welcome to "Bean to Cup," a haven for discerning coffee enthusiasts. Here at Bean to Cup, 
+  we're dedicated to the art of bringing you the perfect cup of coffee, starting from the bean 
+  and ending with an exquisite sip. Our commitment to excellence is reflected in the carefully 
+  curated selection of ethically sourced beans from across the globe. Our skilled baristas, true 
+  maestros of the coffee craft, artfully brew each cup, ensuring a harmonious blend of flavors 
+  and aromas that dance on your palate. Beyond the exceptional coffee, Bean to Cup is a vibrant 
+  community space where conversations flow as smoothly as our freshly ground beans, and the cozy 
+  atmosphere beckons you to unwind and savor the moment.</p>
+  <a href="https://www.philatlas.com/luzon/ncr/manila/barangay-409.html" target="_blank" style="background-color: #E48F45;" class="read-more">Read More</a>
+</div>
+</section>
+</div>
+
+
+<!--Menu start------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+<section class = "menu">
+  <div class = "menu-container">
+    <div class = "menu-head">
+      <h2>Our Menu</h2>
+      <p>
+        Indulge in the rich symphony of flavors with our carefully curated coffee selection. 
+        From the robust notes of our signature dark roast to the velvety smoothness of our 
+        handcrafted lattes, each sip is a journey through the artistry of coffee craftsmanship. 
+        Elevate your coffee experience with our ethically sourced beans, expertly brewed to 
+        perfection, and savor the warmth that only a meticulously crafted cup of coffee can deliver.</p>
+    </div>
+
+    <div class = "menu-btns">
+      <button type = "button" class = "menu-button active-button" id = "featured">featured</button>
+      <button type = "button" class = "menu-button" id = "today-special">today's special</button>
+      <button type = "button" class = "menu-button" id = "new-arrival">new arrivals</button>
+    </div>
+
+    <div class = "food-items">
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/banana-bread-with-butter-and-milk.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Banana Bread With Butter & Milk</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/barbecue.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Barbecue</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$20.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/barbecued-roasted-duck-ramen.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Barbecued Roasted Duck Ramen</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$35.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/bread-with-seeds-and-butter.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Bread With Seeds & Butter</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$27.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/breakfast-sandwich-with-hummus-spread-and-fresh-vegetables.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Breadfast Sandwich</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$15.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/brunch-skillet-with-eggs-and-tomatoes.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Brunch Skillet</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$10.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/chicken-breast-steaks-with-beetroot.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Chicken Breast Steaks</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$15.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/chicken-legs-with-tomatoes-peppers-and-oranges.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Chicken Legs</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$29.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/eggplant-cannelloni.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Eggplant Cannelloni</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$35.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/french-fries-with-steak-and-beer.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">French Fries</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$9.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/fried-rice-with-shrimps.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Fried Rice</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$5.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/king-prawns-with-green-lettuce.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">King Prawns</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$11.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/noodles-with-egg-and-vegetables.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Noodles</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$5.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pizza-with-a-lot-of-cheese.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Cheese Pizza</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$12.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/summer-juicy-beef-burger.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Juicy beef burger</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$14.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Tacos with pulled pork</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$22.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/tiny-pickles-on-top-of-burger.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">tiny pickles</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$7.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/tortilla-chips-with-salsa.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">tortilla chips</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$26.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+</div>
+</section>
+
+
+
+<!--Menu part------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+<!--contact------------------------------------------------------------------------------------------>
+  
+<section id="Contact">
+  <div class="contact-container bg-white custom-shadow mt-n6">
+    <div class="form-container">
+      <h3>Message Us</h3>
+      <form action="" class="contact-form ">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" name="" id="" placeholder="Enter Your Email..." required>
+      <textarea name="" id="" cols="30" rows="10" placeholder="Write Message Here"></textarea>
+      <input type="submit" value="Send" class="send-button" id="btn-colorwhite">
+      </form>
+    </div>
+<!-- maps-->
+<div class="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.9497197988367!2d120.99470875990235!3d14.601940135825647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9fb6c83552d%3A0x54ad786f735dc69e!2sBrgy.%20409%2C%20Sampaloc%2C%20Manila%2C%201008%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1698386693082!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+
+  </div>
+</section>
+
+<!--footer section-->
+<footer>
+  <div class="footer-container">
+      <div class="footer-row">
+            <div class="col" id="company">
+              <a class="logo text-white"  href="#">BRGY-409 CITY OF MANILA</a>
+                <p id="fotlog">
+                  Barangay 409 is situated at approximately 14.6020, 120.9972, in the island of Luzon. 
+               
+                </p>
+                <div class="social">
+                  <a href="https://www.facebook.com/Barangay409" target="_blank"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/explore/locations/406245693534408/barangay-409-manila-city/"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/@JoshuaSariego" target="_blank"><i class="fab fa-youtube"></i></a>
+                 
+                </div>
+            </div>
+
+
+            <div class="col" id="services">
+               <h3>Services</h3>
+               <div class="links">
+                  <a href="#">Tracking Management</a>
+                  <a href="#">Report Driver Violation</a>
+                  <a href="#">Improved Safety</a>
+                  <a href="#">News/Events</a>
+               </div>
+            </div>
+
+            <div class="col" id="useful-links">
+               <h3>Links</h3>
+               <div class="links">
+                  <a href="#carouselExampleDark">Home</a>
+                  <a href="#aboutus">About</a>
+                  <a href="#Services">Services</a>
+                  <a href="#Contact">Contact</a>
+               </div>
+            </div>
+
+            <div class="col" id="contact">
+                <h3>Contact</h3>
+                <div class="contact-details">
+                   <i class="fa fa-location"></i>
+                   <p>Brangay 409 Sampaloc Manila, 4th District,Zone 42</p>
+                </div>
+                <div class="contact-details">
+                   <i class="fa fa-phone"></i>
+                   <p>+1-8755856858</p>
+                </div>
+            </div>
+      </div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; 2023 Brgy-409 City of Manila. All Rights Reserved.</p>
+</div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

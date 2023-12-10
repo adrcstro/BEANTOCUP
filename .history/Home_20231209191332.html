@@ -1,0 +1,880 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="images/webiconss.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+    <title>BEAN to CUP</title>
+</head>
+<body>
+ 
+<!-- NAvvar-->
+<nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">BEAN TO CUP<i style="margin-left: 10px;" class="fas fa-mug-hot" aria-hidden="true"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="showHome()">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"onclick="showAbout()" >ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="showMenu()" >MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="showReviews()" >REVIEWS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="showContact()" >CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="showBlogs()" >BLOGS</a>
+          </li>
+         
+        </ul>
+        <form class="d-flex" id="btn-phonenavbar">
+    <button class="btn btn-brand" type="button" name="login" onclick="redirectToLogin()">Login</button>
+    <button class="btn-signup" type="button" onclick="redirectToSignUp()">Sign up</button>
+</form>
+<script>
+    function redirectToLogin() {
+        window.location.href = "login.html";
+    }
+
+    function redirectToSignUp() {
+        // Replace "yourSignUpFile.php" with the actual filename you want to redirect to
+        window.location.href = "signup.html";
+    }
+</script>
+
+        
+      </div>
+    </div>
+  </nav>
+
+<!--home copntent-->
+<div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+
+
+
+      <div class="carousel-item text-center bg-cover vh-100 active slide-1" data-bs-interval="3000">
+
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+            <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+            <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" style="margin-top: 10px;" class="btn btn-brand">EXPLORE</a>
+            <a href="#" style="margin-top: 10px;" class="btn btn-secondary">ORDER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="carousel-item text-center bg-cover vh-100 slide-2 " data-bs-interval="2000">
+        
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+            <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" style="margin-top: 10px;" class="btn btn-brand">EXPLORE</a>
+            <a href="#" style="margin-top: 10px;" class="btn btn-secondary" id="transbtn">ORDER</a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="carousel-item text-center bg-cover vh-100 slide-3"data-bs-interval="1000">
+
+        <div class="container h-100 d-flex align-items-center justify-content-center"> 
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h1 class="display-1 fw-bold text-white">FRESH COFFE IN THE MORNING</h1>
+              <h6 class="text-white">"Indulge in the rich, aromatic embrace of our handcrafted coffee blends, meticulously curated to awaken your senses and elevate your daily brew. Experience the perfect harmony of robust flavors and smooth textures, delivering an unparalleled coffee journey that transcends ordinary sips."</h6>
+            <a href="#" style="margin-top: 10px;" class="btn btn-brand">EXPLORE</a>
+            <a href="#" style="margin-top: 10px;" class="btn btn-secondary">ORDER</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+ 
+
+
+
+
+
+<!--About Section-->
+<section style="display: none;" class="aboutsection" id="aboutsection"> 
+<div class="Heading" id="aboutus" >
+<h1>About Us</h1>
+<p>"Sip, savor, and elevate your moments with our expertly crafted coffees"</p>
+</div>
+<div class="abt-container">
+<section class="about">
+  <div class="about-images">
+<img style="border-radius: 20px;" src="Images/co4.jpg">
+  </div>
+<div class="about-content">
+  <h2>Organic products made with love.
+    That's what you get from us.</h2>
+<p>Welcome to "Bean to Cup," a haven for discerning coffee enthusiasts. Here at Bean to Cup, 
+  we're dedicated to the art of bringing you the perfect cup of coffee, starting from the bean 
+  and ending with an exquisite sip. Our commitment to excellence is reflected in the carefully 
+  curated selection of ethically sourced beans from across the globe. Our skilled baristas, true 
+  maestros of the coffee craft, artfully brew each cup, ensuring a harmonious blend of flavors 
+  and aromas that dance on your palate. Beyond the exceptional coffee, Bean to Cup is a vibrant 
+  community space where conversations flow as smoothly as our freshly ground beans, and the cozy 
+  atmosphere beckons you to unwind and savor the moment.</p>
+  <a href="https://www.philatlas.com/luzon/ncr/manila/barangay-409.html" target="_blank" style="background-color: #E48F45;" class="read-more">Read More</a>
+</div>
+</section>
+</div>
+
+
+
+
+</section>
+
+<!--Menu start------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+ 
+<section style="display: none;" class = "menus" id="menu">
+  <div class = "menu-container">
+    <div class = "menu-head">
+      <h2>Our Menu</h2>
+      
+    </div>
+
+    <div class="menu-btns">
+      <button type="button" class="menu-btn active-btn" id="featured"><i class="fa-solid fa-mug-hot"></i></i>Hot Coffee's</button>
+      <button type="button" class="menu-btn" id="today-special"><i class="fa-solid fa-cake-candles"></i>Pastries</button>
+      <button type="button" class="menu-btn" id="new-arrival"><i class="fa-solid fa-mug-saucer"></i>Ice Coffee's</button>
+      <button type="button" class="menu-btn" id="Blended Coffee's"><i class="fa-solid fa-blender"></i>Blended Coffee's</button>
+      <button type="button" class="menu-btn" id=""><i class="fa-brands fa-envira"></i>Hot Tea's</button>
+  </div>
+
+    <div class = "food-items">
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee1.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Caramel Macchiato</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis5.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Lemon Cake</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$20.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee1.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Frosty Frappé</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$35.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee2.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Caramel Comfort</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$27.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis1.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Chocolate Sandwich</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$15.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee2.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Ice Elixir</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$10.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee3.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Hazelnut Heaven</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$15.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis2.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Strawberry Pancake's</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$29.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee3.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Chai Chill</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$35.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee4.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Hazelnut Heaven</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$9.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis3.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Chocolate Cake</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$5.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee4.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Frozen Tiramisu</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$11.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee5.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Almond Bliss</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$5.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis4.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Waffle's</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$12.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee5.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Peach Permafrost</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$14.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item featured">
+        <div class = "food-img">
+          <img src = "Images/hotcoffee6.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Colombian Cloud</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$22.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item today-special">
+        <div class = "food-img">
+          <img src = "Images/pastreis6.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Croissant's</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$7.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Today's Special</span></p>
+        </div>
+      </div>
+      <!-- end of item -->
+
+      <!-- item -->
+      <div class = "food-item new-arrival">
+        <div class = "food-img">
+          <img src = "Images/icecofee6.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Mint Chocolate Chill</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$26.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+
+
+
+      <div class = "food-item Blended Coffee's">
+        <div class = "food-img">
+          <img src = "Images/icecofee6.jpg" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">Mint Chocolate Chill</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$26.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>New Arrivals</span></p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+</section>
+
+<!--Menu part------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+<!--testimonials------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+<div  style="display: none;" class="outerdiv" id="reviews">
+  <h2>Reviews From Popular Coffee Enthusiasts</h2>
+  <div class="innerdiv">
+    <!-- div1 -->
+    <div class="div1 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Daniel Clifford</p>
+          <p class="designation">Coffee Enthusiast</p>
+        </div>
+      </div>
+      <div class="review">
+        <h4>"A Culinary Symphony The Gourmet Palette"</h4>
+      <p>“Indulge in the refined artistry of culinary delights at The Gourmet Palette, where each dish is a meticulously orchestrated
+         symphony of flavors. From the avant-garde appetizers to the sublime desserts, the chef's innovative approach transforms traditional
+          ingredients into a gastronomic masterpiece. The harmonious fusion of taste, texture, and presentation, coupled with the attentive
+           staff and elegant ambiance, ensures that every visit to The Gourmet Palette is a symphony for the senses, leaving patrons with a lingering 
+           appreciation for culinary excellence. ”</p>
+      </div>
+    </div>
+    <!-- div2 -->
+    <div class="div2 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Jonathan Walters</p>
+          <p class="designation">Coffee Enthusiast</p>
+        </div>
+      </div>
+      <div class="review">
+        <h4>"Tranquil Tea Haven: A Serene Escape in the City"</h4>
+      <p>“ Step into Tranquil Tea Haven and experience a peaceful retreat amidst the urban chaos. The minimalist decor and soothing ambiance create an inviting atmosphere ”</p>
+      </div>
+    </div>
+    <!-- div3 -->
+    <div class="div3 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name dark">Kira Whittle</p>
+          <p class="designation dark">Coffee Enthusiast</p>
+        </div>
+      </div>
+      <div class="review dark">
+        <h4>"Urban Bites: A Culinary Adventure Unleashed"</h4>
+        <p>“ Embark on a culinary odyssey at Urban Bites, where the menu is a thrilling adventure of bold and unexpected flavors. The fusion of diverse cuisines and imaginative ingredients transforms each dish into a gastronomic exploration. The visually stunning presentations and the chefs' audacious creativity make Urban Bites a haven for those who crave a dining experience that transcends the ordinary, inviting patrons to savor the excitement of culinary boundaries pushed to their limits. ”</p>
+      </div>
+    </div>
+    <!-- div4 -->
+    <div class="div4 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Jeanette Harmon</p>
+          <p class="designation">Coffee Enthusiast</p>
+        </div>
+      </div>
+      <div class="review">
+        <h4>"Cozy Corner Cafe: A Home Away From Home"</h4>
+      <p>“ Find comfort and familiarity at Cozy Corner Cafe, a charming establishment that feels like a cherished home away from home. ”</p>
+      </div>
+    </div>
+    <!-- div5 -->
+    <div class="div5 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Patrick Abrams</p>
+          <p class="designation">Coffee Enthusiast</p>
+        </div>
+      </div>
+      <div class="review">
+        <h4>"Artistic Elegance at Gallery Gastronomy"</h4>
+      <p>“Immerse yourself in the intersection of culinary excellence and visual artistry at Gallery Gastronomy, where each dish is a masterpiece on a plate. The meticulous fusion of flavors, textures, and presentation creates an unparalleled dining experience that stimulates both the palate and the senses. The sophisticated ambiance, reminiscent of an upscale art gallery, enhances the overall aesthetic appeal, making Gallery Gastronomy a destination for those who appreciate the artful marriage of exquisite cuisine and visual elegance.
+        ”</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--testimonials------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+<!--contact------------------------------------------------------------------------------------------>
+  
+
+<!--contact  end------------------------------------------------------------------------------------------>
+
+
+
+
+
+<!--blogs------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+  
+<section  style="display: none;" id="gallery">
+
+  <div class = "gallery-head">
+    <h2 style="margin-top: 2rem;">Blogs</h2>
+    
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <img src="Images/blog7.jpg" alt="" class="card-img-top custom-card-img">
+          <div class="card-body">
+            <h5 class="card-title"> "Exploring Exotic Coffee Beans: A Journey from Crop to Cup"</h5>
+            <p class="card-text">Embark on a flavorful adventure as we delve into the origins of exotic coffee beans. From the lush hills of Ethiopia to the vibrant plantations of Colombia, discover the unique characteristics that make each bean special. </p>
+            <button class="btn btn-brand" type="button" name="login">Read</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <img src="Images/blog5.jpg" alt="" class="card-img-top custom-card-img">
+          <div class="card-body">
+            <h5 class="card-title">"The Art of Brewing: Elevate Your Coffee Game with Creative Techniques"</h5>
+            <p class="card-text">Unleash your inner barista with our guide to creative coffee brewing techniques. From pour-over perfection to mastering the art of latte art, we'll take you step by step through innovative methods to elevate your at-home coffee experience. </p>
+            <button class="btn btn-brand" type="button" name="login">Read</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <img src="Images/blog6.jpg" alt="" class="card-img-top custom-card-img">
+          <div class="card-body">
+            <h5 class="card-title">"Coffee and Conversation: Creating a Cozy Coffee Shop Vibe at Home"
+            </h5>
+            <p class="card-text">Recreate the warm ambiance of your favorite coffee shop right in your living room Dive into our tips on creating the perfect cozy coffee nook at home.</p>
+            <button class="btn btn-brand" type="button" name="login">Read</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="d-flex flex-wrap" style="margin-top: -2rem; margin-bottom: 2rem;">
+      <div class="card mb-3" style="width: 540px;">
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img src="Images/blog4.jpg" class="img-fluid rounded-start" alt="..." style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                      <h5 class="card-title">"Beyond Espresso: Unraveling the World of Alternative Coffee"</h5>
+                      <p class="card-text">Move beyond the traditional espresso and discover a world of alternative coffee delights From the trendy nitro cold brew to the exotic Turkish coffee, we're exploring unique and delicious ways of people. </p>
+                      <div class="mt-auto">
+                          <button class="btn btn-brand" type="button" name="login">Read</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="card mb-3" style="width: 540px;">
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img src="Images/blog9.jpg" class="img-fluid rounded-start" alt="..." style="height: 300px; object-fit: cover;">
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                      <h5 class="card-title">"The Perfect Pair: Coffee and Desserts for Ultimate Indulgence"</h5>
+                      <p class="card-text">Indulge your taste buds as we explore the delightful pairing of coffee and desserts. From classic combinations like coffee and chocolate to more adventurous pairings. Each cup tells a story, crafted with precision.</p>
+                      <div class="mt-auto">
+                          <button class="btn btn-brand" type="button" name="login">Read</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+
+
+
+
+  </div>
+</section>
+
+
+<!--blogs-------------------------------------------------------------------------------------------------->
+
+
+<section  style="display: none;"  id="Contact">
+  <div class="contact-container bg-white custom-shadow mt-n6">
+    <div class="form-container">
+      <h3>Message Us</h3>
+      <form action="" class="contact-form ">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" name="" id="" placeholder="Enter Your Email..." required>
+      <textarea name="" id="" cols="30" rows="10" placeholder="Write Message Here"></textarea>
+      <input type="submit" value="Send" class="send-button" id="btn-colorwhite">
+      </form>
+    </div>
+<!-- maps-->
+<div class="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61774.573266469764!2d121.04906712167968!3d14.604155300000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b9e0aaae72f7%3A0x366ad7b41f98981e!2sLove%2C%20Coffee%20and%20Breakfast!5e0!3m2!1sen!2sph!4v1701085837788!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--footer section-->
+
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

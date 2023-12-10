@@ -1,0 +1,24 @@
+.logtext {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+  }
+  
+  .login-with-google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: transparent; /* Transparent background */
+    color: #4285f4; /* Google Blue for text color */
+    border: 2px solid #4285f4; /* Add a 2px border with Google Blue color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transition effect */
+  }
+  
+  .login-with-google-btn:hover {
+    background-color: #4285f4; /* Change background on hover */
+    color: #ffffff; /* Change text color on hover */
+    border-color: #ffffff; /* Change border color on hover */
+  }
+  

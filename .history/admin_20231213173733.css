@@ -1,0 +1,53 @@
+/*bytewebster.com*/
+/*bytewebster.com*/
+/*bytewebster.com*/
+@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+/* Bootstrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.custom-card {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 100%; /* Adjust the width of the card */
+    max-width: 400px; /* Set a maximum width to control the size */
+    margin: 0 auto; /* Center the card within the column */
+}
+
+.custom-card img {
+    max-width: 45%; /* Make sure the image doesn't exceed the card width */
+    height: auto; /* Maintain the image's aspect ratio */
+}
+
+.custom-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+ 
+#btnhover:hover{
+    background-color: #994D1C; /* Replace with your desired background hover color */
+    color: #fff;
+}
+.card-buttons {
+    text-align: center;
+}
+
+.btn-sm-custom {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    background-color: transparent; /* Remove background color */
+    border: 1px solid #E48F45; /* Add border with the specified color */
+    margin-right: 5px; /* Add a small margin between buttons */
+}
+
+.btn-sm-custom:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.btn-sm-custom i {
+    color: #E48F45; /* Set the icon color to #E48F45 */
+}
+.btn-sm-custom:hover{
+    background-color: #994D1C; /* Replace with your desired background hover color */
+    color: #fff;
+}

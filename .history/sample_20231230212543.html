@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Order Tracking</title>
+    <style>
+        .tracker {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-text {
+            margin-top: 10px;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            width: 100%;
+            background-color: #6c757d;
+            z-index: -1;
+        }
+
+        .step-complete .step-line {
+            background-color: #28a745;
+        }
+
+        .step-complete .step-check {
+            color: #28a745;
+        }
+
+        .step-check {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+        }
+
+        .step-active .step-line {
+            background-color: #007bff;
+        }
+
+        .step-inactive .step-line {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mt-5">Order Tracking</h1>
+    <div class="tracker">
+        <div class="step step-complete">
+            <div class="step-line"></div>
+            <i class="fas fa-check-circle fa-3x step-check"></i>
+            <p class="step-text">On Process</p>
+        </div>
+        <div class="step step-active">
+            <div class="step-line"></div>
+            <i class="fas fa-circle fa-3x"></i>
+            <p class="step-text">In Transit</p>
+        </div>
+        <div class="step step-inactive">
+            <div class="step-line"></div>
+            <i class="fas fa-circle fa-3x"></i>
+            <p class="step-text">Delivered</p>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome Icons (you may need to include this library) -->
+<script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

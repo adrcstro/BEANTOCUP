@@ -2988,7 +2988,6 @@ mysqli_close($conn);
 
 
 
-                <!--Costume place ortdern-->
 
 
 
@@ -3004,9 +3003,7 @@ mysqli_close($conn);
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-             
-                <form action="Costumerdash.php"  method="post">
-
+          
                 <?php
 $servername = "localhost";
 $username = "root";
@@ -3032,14 +3029,15 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
     if (mysqli_num_rows($result) > 0) {
         // Fetch the user data
         $userData = mysqli_fetch_assoc($result);
-
+    
         // Fetch data from the addtocarttbl table for a specific CostumerName
         $desiredCustomerName = $userData['Name'];
         $sql = "SELECT * FROM addtocarttbl WHERE CostumerName = '$desiredCustomerName'";
         $result = $conn->query($sql);
-
+    
+        $totalAmount = 0; // Initialize total amount variable
+    
         if ($result->num_rows > 0) {
-            // Display the order details table
             echo '<table class="table table-hover table-nowrap">
                     <thead class="thead-light">
                         <tr>
@@ -3052,74 +3050,52 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                         </tr>
                     </thead>
                     <tbody>'; // added tbody for better structure
-
+    
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>
-                        <td><img style="border-radius: 10px;" src="uploads/' . $row["Orderimage"] . '" alt="Item Image" width="100"></td>
-                        <td>' . $row["orderid"] . '</td>
-                        <td>' . $row["ItemsOrdered"] . '</td>
-                        <td>' . $row["Size"] . '</td>
-                        <td>' . $row["QTY"] . '</td>
-                        <td>' . $row["Amount"] . '</td>
-                    </tr>';
-            }
-
-            echo '</tbody></table>';
-
-            // Initialize arrays to store individual data
-            $itemsOrdered = [];
-            $sizes = [];
-            $qtys = [];
-            $amounts = [];
-            $totalAmount = 0;
-
-            // Output data of each row
-            $result->data_seek(0); // Reset the result set pointer
-            while ($row = $result->fetch_assoc()) {
-                // Collect data in arrays
-                $itemsOrdered[] = '(' . $row["ItemsOrdered"] . ')';
-                $sizes[] = '(' . $row["Size"] . ')';
-                $qtys[] = '(' . $row["QTY"] . ')';
-                $amounts[] = $row["Amount"];
-
-                // Add amount to the total
+                <td><img style="border-radius: 10px;" src="uploads/' . $row["Orderimage"] . '" alt="Item Image" width="100"></td>
+                <td>' . $row["orderid"] . '</td>
+                <td>' . formatItemsOrdered($row["ItemsOrdered"]) . '</td>
+                <td>' . $row["Size"] . '</td>
+                <td>' . $row["QTY"] . '</td>
+                <td>' . $row["Amount"] . '</td>
+            </tr>';
+        
+    
+                // Accumulate the amount for total calculation
                 $totalAmount += $row["Amount"];
             }
-
-            // Display data in input fields with labels and CSS styles
-            echo '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-left: 20px;">
-                    <div style=" padding: 10px; width: 300px; text-align: left;">
-
-                        <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placeitemsordered" for="placeitemsordered"   style="display: block;">Items Ordered:</label>
-                            <input type="text" name="placeitemsordered" value="' . implode(',', $itemsOrdered) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
-                        </div>
-
-                        <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placesize" for="placesize" style="display: block;">Size:</label>
-                            <input type="text" name="placesize" value="' . implode(',', $sizes) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
-                        </div>
-
-                        <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placeqty" for="placeqty" style="display: block;">Quantity:</label>
-                            <input type="text" name="placeqty" value="' . implode(',', $qtys) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
-                        </div>
-
-                        <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placetotalamount" for="placetotalamount" style="display: block;">Total Amount:</label>
-                            <input type="text" name="placetotalamount" value="' . $totalAmount . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
-                        </div>
-
-                    </div>
-                </div>';
+    
+            echo '</tbody></table>';
+            
+            // Input fields for Items Ordered, Size, Quantity, and Amount
+            echo '<form method="post" action="process_input.php">
+                    <label for="itemsOrdered">Items Ordered:</label>
+                    <input type="text" name="itemsOrdered" id="itemsOrdered" required><br>
+                    
+                    <label for="size">Size:</label>
+                    <input type="text" name="size" id="size" required><br>
+                    
+                    <label for="quantity">Quantity:</label>
+                    <input type="text" name="quantity" id="quantity" required><br>
+                    
+                    <label for="amount">Amount:</label>
+                    <input type="text" name="amount" id="amount" required><br>
+                    
+                    <input type="submit" value="Submit">
+                </form>';
         } else {
             echo "0 results";
         }
+    
+        // Display the total amount outside the table with padding and centering
+        echo '<div style="padding: 20px; text-align: center;">Total Amount: $' . $totalAmount . '</div>';
     } else {
         // No matching user found based on CostumerID
         echo "Error fetching user details.";
     }
+    
 } else {
     // CostumerID or username missing, redirect to login
     header("Location: login.php");
@@ -3130,214 +3106,30 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
 mysqli_close($conn);
 ?>
 
-                <!--shifment information-->
+ <script>function formatItemsOrdered($itemsOrdered) {
+    // Assuming items are separated by a comma and space
+    $items = explode(', ', $itemsOrdered);
+    $formattedItems = array_map(function($item) {
+        return "('$item')";
+    }, $items);
 
-
-<?php
-// Include your database connection file
-require_once('connection.php');
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Retrieve user information from URL parameters
-$loggedInCostumerID = isset($_GET['CostumerID']) ? $_GET['CostumerID'] : null;
-$loggedInUsername = isset($_GET['username']) ? $_GET['username'] : null;
-
-// Check if both CostumerID and username are present
-if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
-    // Fetch user details from the database using CostumerID
-    $query = "SELECT Name, Email, Phone, HomeAddress FROM costumers WHERE CostumerID = '$loggedInCostumerID'";
-    $result = mysqli_query($conn, $query);
-
-    // Check if there is a matching user
-    if (mysqli_num_rows($result) > 0) {
-        // Fetch the user data
-        $userData = mysqli_fetch_assoc($result);
-
-        echo '<div id="customerDetails">';
-        echo '<div class="container">';
-        echo '<div class="row justify-content-center">';
-        echo '<div class="col-md-17">';
-        echo '<h2 class="mt-7 text-center" id="FAQ">Order Information</h2>';
-        echo "<div class='container mt-2'>";
-        echo "<div class='mb-3'>";
-        echo "<label id='PlacefullName'  for='PlacefullName'><i class='fas fa-user'></i> Full Name</label>";
-        echo "<input type='text' name='PlacefullName' value='{$userData['Name']}' class='form-control'  style='background-color: #fff;'>";
-        echo "</div>";
-        echo "<div class='mb-3'>";
-        echo "<label id='Placeemail' for='Placeemail'><i class='fas fa-envelope'></i> Email</label>";
-        echo "<input type='text' name='Placeemail' value='{$userData['Email']}' class='form-control'  style='background-color: #fff;'>";
-        echo "</div>";
-        echo "<div class='mb-3'>";
-        echo "<label id='Placephone'  for='Placephone'><i class='fas fa-phone'></i> Phone</label>";
-        echo "<input type='text' name='Placephone' value='{$userData['Phone']}' class='form-control' style='background-color: #fff;'>";
-        echo "</div>";
-        echo "<div class='mb-3'>";
-        echo "<label id='PlacehomeAddress' for='PlacehomeAddress'><i class='fas fa-home'></i> Home Address</label>";
-        echo "<input type='text' name='PlacehomeAddress' value='{$userData['HomeAddress']}' class='form-control' style='background-color: #fff;'>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        
-        echo "<script src='https://code.jquery.com/jquery-3.6.4.min.js'></script>";
-echo "<script>";
-echo "
-function hideInputFields() {
-    $('#customerDetails').hide();
+    return implode(', ', $formattedItems);
 }
-";
-echo "</script>";
-        
-    } else {
-        // No matching user found
-        echo "Error fetching user details.";
-    }
-} else {
-    // CostumerID or username missing, redirect to login
-    header("Location: login.php");
-    exit();
-}
-
-// Close the database connection
-mysqli_close($conn);
-?>
-
-                <!-- date place -->
-
-<div style="display: flex; flex-direction: column; align-items: center;" class="form-group mb-3">
-    <label id="Placedateplace" for="Placedateplace">Date Ordered</label>
-    <div style="position: relative; width: 90%;">
-        <input style="width: calc(100% - 30px);  margin: 0 auto;" type="date" name="Placedateplace" class="form-control" required>
-    </div>
-</div>
-
-
-                <!-- Mode of paymeny -->
-
-
-<h5 style="text-align: center; margin-bottom: 5px;">Mode of Payment</h5>
-            <div class="d-flex justify-content-center mb-3">
-           
-    <div class="shortcutbtn mt-2 d-flex justify-content-center align-items-center">  
-        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatePlacepaymed('Cash on Delivery')">
-            <span class="pe-2">
-                <i class="bi bi-wallet2"></i>
-            </span>
-            <span>Cash on Delivery</span>
-        </a>
-    </div>
-
-    <div class="shortcutbtn mt-2 d-flex justify-content-center align-items-center">  
-        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatePlacepaymed('Pay Online')">
-            <span class="pe-2">
-                <i class="bi bi-credit-card-2-front"></i>
-            </span>
-            <span>Pay Online</span>
-        </a>
-    </div>
-</div>
-
-<div  style="width: 80%; margin: auto; display:block;  margin-bottom: 10px;">
-    <label  for="Placemodpay"></label>
-    <textarea class="form-control mx-auto" name="Placemodpay" id="Placemodpay" style="width: 100%;"></textarea>
-</div>
-
-<script>
-    function updatePlacepaymed(rating) {
-        document.getElementById("Placemodpay").value = rating + "";
-        // You can customize this value as per your requirement
-    }
 </script>
-            
 
 
 
 
              
-
+</div>
 <div class="modal-footer">
                     <button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn" data-dismiss="modal">Close</button>
-                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">Place Order</button>
+                    <button style="background-color: #E48F45; color: #fff;" id="orderUpdate" type="button" class="btn btn">Place Order</button>
+                </div>
 
-                </div>
-                </form>
-                </div>
             </div>
         </div>
     </div>
-
-
-
-
-  
-    <script>
-    $(document).ready(function(){
-        $("form").submit(function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            var PlacefullName = $("input[name='PlacefullName']").val();
-            var Placedateplace = $("input[name='Placedateplace']").val();
-            var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
-            var Placephone = $("input[name='Placephone']").val();
-            var Placeemail = $("input[name='Placeemail']").val();
-            var Placemodpay = $("textarea[name='Placemodpay']").val();
-            var placeitemsordered = $("input[name='placeitemsordered']").val();
-            var placesize = $("input[name='placesize']").val();
-            var placeqty = $("input[name='placeqty']").val();
-            var placetotalamount = $("input[name='placetotalamount']").val();
-
-            $.post("inserttdbs.php", {
-                PlacefullName: PlacefullName,
-                Placedateplace: Placedateplace,
-                PlacehomeAddress: PlacehomeAddress,
-                Placephone: Placephone,
-                Placeemail: Placeemail,
-                Placemodpay: Placemodpay,
-                placeitemsordered: placeitemsordered,
-                placesize: placesize,
-                placeqty: placeqty,
-                placetotalamount: placetotalamount
-            }, function(data, status){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Ordered successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Okay',
-                });
-                // Apply custom class for light theme
-                $(".swal2-popup").addClass('light-theme');
-            });
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

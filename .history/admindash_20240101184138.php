@@ -1574,8 +1574,8 @@ $conn->close();
 
 
 
-<!-- Create a canvas for the line chart -->
-<canvas id="lineChart" width="400" height="200"></canvas>
+
+                    <canvas id="lineChart" width="400" height="200"></canvas>
 
 <script>
 // Use PHP data in JavaScript
@@ -1595,11 +1595,11 @@ var ctx = document.getElementById('lineChart').getContext('2d');
 var lineChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Poor', 'Fair', 'Very Good', 'Excellent'],
+        labels: labels,
         datasets: [{
             label: 'Customer Ratings',
             data: data,
-            borderColor: '#E48F45',
+            borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
             pointRadius: 5,
             pointHoverRadius: 10,
@@ -1607,15 +1607,6 @@ var lineChart = new Chart(ctx, {
     },
     options: {
         scales: {
-            x: {
-                ticks: {
-                    beginAtZero: true
-                },
-                title: {
-                    display: true,
-                    text: 'Rating'
-                }
-            },
             y: {
                 min: 0,
                 max: 5,
@@ -1629,6 +1620,7 @@ var lineChart = new Chart(ctx, {
     }
 });
 </script>
+
 
                    
 

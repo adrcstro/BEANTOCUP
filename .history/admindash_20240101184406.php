@@ -1599,7 +1599,7 @@ var lineChart = new Chart(ctx, {
         datasets: [{
             label: 'Customer Ratings',
             data: data,
-            borderColor: '#E48F45',
+            borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
             pointRadius: 5,
             pointHoverRadius: 10,

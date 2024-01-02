@@ -154,7 +154,7 @@ function updatereOrderStatus($conn) {
     $reorderId = $_POST['REProcessFailedorder'];
     $renewStatus = $_POST['newreStatus'];
 
-    if (!empty($reorderId)) {
+    if (!empty($orderId)) {
         $stmt = $conn->prepare("UPDATE ordertbl SET Status=? WHERE OrderID=?");
         $stmt->bind_param("ss", $renewStatus, $reorderId);
 

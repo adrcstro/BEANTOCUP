@@ -17,7 +17,6 @@ require_once('connection.php');
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <!-- bytewebster.com -->
@@ -1519,116 +1518,9 @@ $conn->close();
                     </div>
                     <div class="table-responsive">
    
-                    <?php
-// Database connection parameters
-
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch data from the costumerrate table
-$sql = "SELECT CosName, Rate FROM costumerrate";
-$result = $conn->query($sql);
-
-// Check if there is data
-if ($result->num_rows > 0) {
-    // Process data for the line chart
-    $numericRatings = [];
-    while ($row = $result->fetch_assoc()) {
-        $customer = $row['CosName'];
-        $textRating = $row['Rate'];
-
-        // Convert text rating to numeric
-        switch ($textRating) {
-            case 'Poor':
-                $numericRating = 1;
-                break;
-            case 'Fair':
-                $numericRating = 2;
-                break;
-            case 'Very Good':
-                $numericRating = 3;
-                break;
-            case 'Excellent':
-                $numericRating = 4;
-                break;
-            default:
-                $numericRating = 0; // Default to 0 if unknown rating
-        }
-
-        $numericRatings[] = [$customer, $numericRating];
-    }
-} else {
-    echo "No data found in the costumerrate table.";
-}
-
-// Close the database connection
-$conn->close();
-?>
 
 
 
-
-<!-- Create a canvas for the line chart -->
-<canvas id="lineChart" width="400" height="200"></canvas>
-
-<script>
-// Use PHP data in JavaScript
-var ratingsData = <?php echo json_encode($numericRatings); ?>;
-
-// Extract labels and data for Chart.js
-var labels = ratingsData.map(function(item) {
-    return item[0];
-});
-
-var data = ratingsData.map(function(item) {
-    return item[1];
-});
-
-// Create a line chart
-var ctx = document.getElementById('lineChart').getContext('2d');
-var lineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Poor', 'Fair', 'Very Good', 'Excellent'],
-        datasets: [{
-            label: 'Customer Ratings',
-            data: data,
-            borderColor: '#E48F45',
-            borderWidth: 1,
-            pointRadius: 5,
-            pointHoverRadius: 10,
-        }]
-    },
-    options: {
-        scales: {
-            x: {
-                ticks: {
-                    beginAtZero: true
-                },
-                title: {
-                    display: true,
-                    text: 'Rating'
-                }
-            },
-            y: {
-                min: 0,
-                max: 5,
-                ticks: { stepSize: 1 },
-                title: {
-                    display: true,
-                    text: 'Numeric Rating'
-                }
-            }
-        }
-    }
-});
-</script>
 
                    
 
@@ -2755,6 +2647,10 @@ $conn->close();
 
 
 
+
+
+
+
                     </table>
 
 
@@ -2767,6 +2663,34 @@ $conn->close();
 
     </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

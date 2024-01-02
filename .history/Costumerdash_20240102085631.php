@@ -3285,7 +3285,7 @@ mysqli_close($conn);
             var Placeemail = $("input[name='Placeemail']").val();
             var Placemodpay = $("textarea[name='Placemodpay']").val();
             var placeitemsordered = $("input[name='placeitemsordered']").val();
-            var placesize = $("input[name='placesize']").val();
+            var placesize = $("input[name='Placesize']").val();
             var placeqty = $("input[name='placeqty']").val();
             var placetotalamount = $("input[name='placetotalamount']").val();
 

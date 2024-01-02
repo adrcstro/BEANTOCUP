@@ -279,7 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['newsneader'], $_POST['
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['PlacefullName'], $_POST['Placedateplace'], $_POST['PlacehomeAddress'], $_POST['Placephone'], $_POST['Placeemail'], $_POST['Placemodpay'], $_POST['placeitemsordered'], $_POST['placesize'], $_POST['placeqty'], $_POST['placetotalamount'])){
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['PlacefullName'], $_POST['Placedateplace'], $_POST['PlacehomeAddress'], $_POST['Placephone'], $_POST['Placeemail'], $_POST['Placemodpay'], $_POST['placeitems_ordered'], $_POST['placesize'], $_POST['placeqty'], $_POST['placetotal_amount'])){
     // Collect form data for the insertion
     $placeFullName = $_POST['PlacefullName'];
     $placeDateplace = $_POST['Placedateplace'];
@@ -287,35 +287,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['PlacefullName'], $_POS
     $placePhone = $_POST['Placephone'];
     $placeEmail = $_POST['Placeemail'];
     $placeModpay = $_POST['Placemodpay'];
-    $placeProdname = $_POST['placeitemsordered'];
+    $placeProdname = $_POST['placeitems_ordered'];
     $placeSize = $_POST['placesize'];
     $placeQuantity = $_POST['placeqty'];
-    $placeTotal = $_POST['placetotalamount'];
+    $placeTotal = $_POST['placetotal_amount'];
 
     // Check if 'CostumerName' is not null before inserting
     if ($placeFullName !== null) {
         // Prepare and bind for the insertion
         $stmt = $conn->prepare("INSERT INTO ordertbl (CostumerName, DatePlaced, ShippingAddress, ContactNumber, EmailAddress, PaymentMethod, ItemsOrdered, Size, QTY, Amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        // Use "sssssssssd" as the bind_param string
-        $stmt->bind_param("sssssssssd", $placeFullName, $placeDateplace, $placeHomeAddress, $placePhone, $placeEmail, $placeModpay, $placeProdname, $placeSize, $placeQuantity, $placeTotal);
-        
-        // Execute the insertion statement
-        if ($stmt->execute() === TRUE) {
-            echo "Ordered Successfully";
-        } else {
-            echo "Error executing statement: " . $stmt->error;
+        // Check for errors in preparation
+        if (!$stmt) {
+            echo "Error preparing statement: " . $conn->error;
 
             // Log the error
-            error_log("Error executing SQL statement: " . $stmt->error);
-        }
+            error_log("Error preparing SQL statement: " . $conn->error);
+        } else {
+            // Use "sssssssssd" as the bind_param string
+            $stmt->bind_param("sssssssssd", $placeFullName, $placeDateplace, $placeHomeAddress, $placePhone, $placeEmail, $placeModpay, $placeProdname, $placeSize, $placeQuantity, $placeTotal);
+            
+            // Execute the insertion statement
+            if ($stmt->execute() === TRUE) {
+                echo "Ordered Successfully";
+            } else {
+                echo "Error executing statement: " . $stmt->error;
 
-        // Close the insertion statement
-        $stmt->close();
+                // Log the error
+                error_log("Error executing SQL statement: " . $stmt->error);
+            }
+
+            // Close the insertion statement
+            $stmt->close();
+        }
     } else {
         echo "Error: 'CostumerName' cannot be null.";
     }
-} 
+}
 
 
 

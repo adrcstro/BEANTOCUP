@@ -2988,7 +2988,6 @@ mysqli_close($conn);
 
 
 
-                <!--Costume place ortdern-->
 
 
 
@@ -3004,7 +3003,7 @@ mysqli_close($conn);
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-             
+           
                 <form action="Costumerdash.php"  method="post">
 
                 <?php
@@ -3092,23 +3091,23 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                     <div style=" padding: 10px; width: 300px; text-align: left;">
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placeitemsordered" for="placeitemsordered"   style="display: block;">Items Ordered:</label>
-                            <input type="text" name="placeitemsordered" value="' . implode(',', $itemsOrdered) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label style="display: block;">Items Ordered:</label>
+                            <input type="text" name="items_ordered" value="' . implode(',', $itemsOrdered) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placesize" for="placesize" style="display: block;">Size:</label>
-                            <input type="text" name="placesize" value="' . implode(',', $sizes) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label style="display: block;">Size:</label>
+                            <input type="text" name="size" value="' . implode(',', $sizes) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placeqty" for="placeqty" style="display: block;">Quantity:</label>
-                            <input type="text" name="placeqty" value="' . implode(',', $qtys) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label style="display: block;">Quantity:</label>
+                            <input type="text" name="qty" value="' . implode(',', $qtys) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placetotalamount" for="placetotalamount" style="display: block;">Total Amount:</label>
-                            <input type="text" name="placetotalamount" value="' . $totalAmount . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label style="display: block;">Total Amount:</label>
+                            <input type="text" name="total_amount" value="' . $totalAmount . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                     </div>
@@ -3160,20 +3159,20 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
         echo '<h2 class="mt-7 text-center" id="FAQ">Order Information</h2>';
         echo "<div class='container mt-2'>";
         echo "<div class='mb-3'>";
-        echo "<label id='PlacefullName'  for='PlacefullName'><i class='fas fa-user'></i> Full Name</label>";
-        echo "<input type='text' name='PlacefullName' value='{$userData['Name']}' class='form-control'  style='background-color: #fff;'>";
+        echo "<label id='fullName'  for='fullName'><i class='fas fa-user'></i> Full Name</label>";
+        echo "<input type='text' name='fullName' value='{$userData['Name']}' class='form-control'  style='background-color: #fff;'>";
         echo "</div>";
         echo "<div class='mb-3'>";
-        echo "<label id='Placeemail' for='Placeemail'><i class='fas fa-envelope'></i> Email</label>";
-        echo "<input type='text' name='Placeemail' value='{$userData['Email']}' class='form-control'  style='background-color: #fff;'>";
+        echo "<label id='email' for='email'><i class='fas fa-envelope'></i> Email</label>";
+        echo "<input type='text' name='email' value='{$userData['Email']}' class='form-control'  style='background-color: #fff;'>";
         echo "</div>";
         echo "<div class='mb-3'>";
-        echo "<label id='Placephone'  for='Placephone'><i class='fas fa-phone'></i> Phone</label>";
-        echo "<input type='text' name='Placephone' value='{$userData['Phone']}' class='form-control' style='background-color: #fff;'>";
+        echo "<label id='phone'  for='phone'><i class='fas fa-phone'></i> Phone</label>";
+        echo "<input type='text' name='phone' value='{$userData['Phone']}' class='form-control' style='background-color: #fff;'>";
         echo "</div>";
         echo "<div class='mb-3'>";
-        echo "<label id='PlacehomeAddress' for='PlacehomeAddress'><i class='fas fa-home'></i> Home Address</label>";
-        echo "<input type='text' name='PlacehomeAddress' value='{$userData['HomeAddress']}' class='form-control' style='background-color: #fff;'>";
+        echo "<label id='homeAddress' for='homeAddress'><i class='fas fa-home'></i> Home Address</label>";
+        echo "<input type='text' name='homeAddress' value='{$userData['HomeAddress']}' class='form-control' style='background-color: #fff;'>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
@@ -3207,9 +3206,9 @@ mysqli_close($conn);
                 <!-- date place -->
 
 <div style="display: flex; flex-direction: column; align-items: center;" class="form-group mb-3">
-    <label id="Placedateplace" for="Placedateplace">Date Ordered</label>
+    <label id="dateplace" for="dateplace">Date Ordered</label>
     <div style="position: relative; width: 90%;">
-        <input style="width: calc(100% - 30px);  margin: 0 auto;" type="date" name="Placedateplace" class="form-control" required>
+        <input style="width: calc(100% - 30px);  margin: 0 auto;" type="date" name="dateplace" class="form-control" required>
     </div>
 </div>
 
@@ -3221,7 +3220,7 @@ mysqli_close($conn);
             <div class="d-flex justify-content-center mb-3">
            
     <div class="shortcutbtn mt-2 d-flex justify-content-center align-items-center">  
-        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatePlacepaymed('Cash on Delivery')">
+        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatepaymed('Cash on Delivery')">
             <span class="pe-2">
                 <i class="bi bi-wallet2"></i>
             </span>
@@ -3230,7 +3229,7 @@ mysqli_close($conn);
     </div>
 
     <div class="shortcutbtn mt-2 d-flex justify-content-center align-items-center">  
-        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatePlacepaymed('Pay Online')">
+        <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" onclick="updatepaymed('Pay Online')">
             <span class="pe-2">
                 <i class="bi bi-credit-card-2-front"></i>
             </span>
@@ -3239,31 +3238,42 @@ mysqli_close($conn);
     </div>
 </div>
 
-<div  style="width: 80%; margin: auto; display:block;  margin-bottom: 10px;">
-    <label  for="Placemodpay"></label>
-    <textarea class="form-control mx-auto" name="Placemodpay" id="Placemodpay" style="width: 100%;"></textarea>
+<div  style="width: 80%; margin: auto; display:none;  margin-bottom: 10px;">
+    <label  for="modpay"></label>
+    <textarea class="form-control mx-auto" name="modpay" id="modpay" style="width: 100%;"></textarea>
 </div>
 
 <script>
-    function updatePlacepaymed(rating) {
-        document.getElementById("Placemodpay").value = rating + "";
+    function updatepaymed(rating) {
+        document.getElementById("modpay").value = rating + "";
         // You can customize this value as per your requirement
     }
 </script>
             
+            
+<div class="input-group mb-3 d-flex justify-content-center align-items-center" style="max-width: 500px; margin: auto;">
+    <input type="text" class="form-control" id="total" name="total" for='total' aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="input-group-append">
+        <span class="input-group-text">$</span>
+    </div>
+</div>
+
+
+
+
+
+
 
 
 
 
              
-
+</div>
 <div class="modal-footer">
                     <button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn" data-dismiss="modal">Close</button>
-                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">Place Order</button>
-
+                    <button style="background-color: #E48F45; color: #fff;" id="orderUpdate" type="button" class="btn btn">Place Order</button>
                 </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
@@ -3271,48 +3281,9 @@ mysqli_close($conn);
 
 
 
-  
-    <script>
-    $(document).ready(function(){
-        $("form").submit(function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
 
-            var PlacefullName = $("input[name='PlacefullName']").val();
-            var Placedateplace = $("input[name='Placedateplace']").val();
-            var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
-            var Placephone = $("input[name='Placephone']").val();
-            var Placeemail = $("input[name='Placeemail']").val();
-            var Placemodpay = $("textarea[name='Placemodpay']").val();
-            var placeitemsordered = $("input[name='placeitemsordered']").val();
-            var placesize = $("input[name='placesize']").val();
-            var placeqty = $("input[name='placeqty']").val();
-            var placetotalamount = $("input[name='placetotalamount']").val();
 
-            $.post("inserttdbs.php", {
-                PlacefullName: PlacefullName,
-                Placedateplace: Placedateplace,
-                PlacehomeAddress: PlacehomeAddress,
-                Placephone: Placephone,
-                Placeemail: Placeemail,
-                Placemodpay: Placemodpay,
-                placeitemsordered: placeitemsordered,
-                placesize: placesize,
-                placeqty: placeqty,
-                placetotalamount: placetotalamount
-            }, function(data, status){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Ordered successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Okay',
-                });
-                // Apply custom class for light theme
-                $(".swal2-popup").addClass('light-theme');
-            });
-        });
-    });
-</script>
+
 
 
 

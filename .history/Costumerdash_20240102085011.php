@@ -3273,34 +3273,33 @@ mysqli_close($conn);
 
   
     <script>
-    $(document).ready(function(){
-        $("form").submit(function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
+   $(document).ready(function(){
+    $("#placeorder").click(function(){
+        var PlacefullName = $("input[name='PlacefullName']").val();
+        var Placedateplace = $("input[name='Placedateplace']").val();
+        var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
+        var Placephone = $("input[name='Placephone']").val();
+        var Placeemail = $("input[name='Placeemail']").val();
+        var Placemodpay = $("textarea[name='Placemodpay']").val(); // Update textarea id
+        var placeitemsordered = $("input[name='placeitemsordered']").val(); // Fix typo and use correct selector
+        var placesize= $("input[name='placesize']").val(); // Update textarea id
+        var placeqty = $("input[name='placeqty']").val();
+        var placetotalamount = $("input[name='placetotalamount']").val();
 
-            var PlacefullName = $("input[name='PlacefullName']").val();
-            var Placedateplace = $("input[name='Placedateplace']").val();
-            var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
-            var Placephone = $("input[name='Placephone']").val();
-            var Placeemail = $("input[name='Placeemail']").val();
-            var Placemodpay = $("textarea[name='Placemodpay']").val();
-            var placeitemsordered = $("input[name='placeitemsordered']").val();
-            var placesize = $("input[name='placesize']").val();
-            var placeqty = $("input[name='placeqty']").val();
-            var placetotalamount = $("input[name='placetotalamount']").val();
-
-            $.post("inserttdbs.php", {
-                PlacefullName: PlacefullName,
-                Placedateplace: Placedateplace,
-                PlacehomeAddress: PlacehomeAddress,
-                Placephone: Placephone,
-                Placeemail: Placeemail,
-                Placemodpay: Placemodpay,
-                placeitemsordered: placeitemsordered,
-                placesize: placesize,
-                placeqty: placeqty,
-                placetotalamount: placetotalamount
-            }, function(data, status){
+        $.post("inserttdbs.php",
+        {
+            PlacefullName: PlacefullName,
+            Placedateplace: Placedateplace,
+            PlacehomeAddress: PlacehomeAddress,
+            Placephone: Placephone,
+            Placeemail: Placeemail,
+            Placemodpay:Placemodpay,
+            placeitemsordered: placeitemsordered,
+            placesize: placesize,
+            placeqty: placeqty,
+            placetotalamount: placetotalamount
+        },
+            function(data, status){
                 Swal.fire({
                     title: 'Success!',
                     text: 'Ordered successfully',

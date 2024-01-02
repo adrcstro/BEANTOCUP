@@ -3004,7 +3004,7 @@ mysqli_close($conn);
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-             
+           
                 <form action="Costumerdash.php"  method="post">
 
                 <?php
@@ -3092,13 +3092,13 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                     <div style=" padding: 10px; width: 300px; text-align: left;">
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placeitemsordered" for="placeitemsordered"   style="display: block;">Items Ordered:</label>
-                            <input type="text" name="placeitemsordered" value="' . implode(',', $itemsOrdered) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label id="placeitems_ordered" for="placeitems_ordered"   style="display: block;">Items Ordered:</label>
+                            <input type="text" name="placeitems_ordered" value="' . implode(',', $itemsOrdered) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
                             <label id="placesize" for="placesize" style="display: block;">Size:</label>
-                            <input type="text" name="placesize" value="' . implode(',', $sizes) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <input type="text" name="Placesize" value="' . implode(',', $sizes) . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
@@ -3107,8 +3107,8 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                         </div>
 
                         <div style="margin-bottom: 10px; width: 100%;">
-                            <label id="placetotalamount" for="placetotalamount" style="display: block;">Total Amount:</label>
-                            <input type="text" name="placetotalamount" value="' . $totalAmount . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
+                            <label id="placetotal_amount" for="placetotal_amount" style="display: block;">Total Amount:</label>
+                            <input type="text" name="placetotal_amount" value="' . $totalAmount . '" style="width: 100%; box-sizing: border-box; border: 1px solid #ccc; padding: 5px;">
                         </div>
 
                     </div>
@@ -3256,14 +3256,12 @@ mysqli_close($conn);
 
 
              
-
+</div>
 <div class="modal-footer">
                     <button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn" data-dismiss="modal">Close</button>
-                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">Place Order</button>
-
+                    <button style="background-color: #E48F45; color: #fff;" id="placeorderUpdate" type="button" class="btn btn">Place Order</button>
                 </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
@@ -3271,36 +3269,34 @@ mysqli_close($conn);
 
 
 
-  
     <script>
-    $(document).ready(function(){
-        $("form").submit(function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
+   $(document).ready(function(){
+    $("#placeorderUpdate").click(function(){
+        var PlacefullName = $("input[name='PlacefullName']").val();
+        var Placedateplace = $("input[name='Placedateplace']").val();
+        var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
+        var Placephone = $("input[name='Placephone']").val();
+        var Placeemail = $("input[name='Placeemail']").val();
+        var Placemodpay = $("textarea[name='Placemodpay']").val(); // Update textarea id
+        var placeitems_ordered = $("input[name='placeitems_ordered']").val(); // Fix typo and use correct selector
+        var placesize= $("input[name='placesize']").val(); // Update textarea id
+        var placeqty = $("input[name='placeqty']").val();
+        var placetotal_amount = $("input[name='placetotal_amount']").val();
 
-            var PlacefullName = $("input[name='PlacefullName']").val();
-            var Placedateplace = $("input[name='Placedateplace']").val();
-            var PlacehomeAddress = $("input[name='PlacehomeAddress']").val();
-            var Placephone = $("input[name='Placephone']").val();
-            var Placeemail = $("input[name='Placeemail']").val();
-            var Placemodpay = $("textarea[name='Placemodpay']").val();
-            var placeitemsordered = $("input[name='placeitemsordered']").val();
-            var placesize = $("input[name='placesize']").val();
-            var placeqty = $("input[name='placeqty']").val();
-            var placetotalamount = $("input[name='placetotalamount']").val();
-
-            $.post("inserttdbs.php", {
-                PlacefullName: PlacefullName,
-                Placedateplace: Placedateplace,
-                PlacehomeAddress: PlacehomeAddress,
-                Placephone: Placephone,
-                Placeemail: Placeemail,
-                Placemodpay: Placemodpay,
-                placeitemsordered: placeitemsordered,
-                placesize: placesize,
-                placeqty: placeqty,
-                placetotalamount: placetotalamount
-            }, function(data, status){
+        $.post("inserttdbs.php",
+        {
+            PlacefullName: PlacefullName,
+            Placedateplace: Placedateplace,
+            PlacehomeAddress: PlacehomeAddress,
+            Placephone: Placephone,
+            Placeemail: Placeemail,
+            Placemodpay:Placemodpay,
+            placeitems_ordered:placeitems_ordered,
+            Placesize: Placesize,
+            placeqty: placeqty,
+            placetotal_amount: placetotal_amount
+        },
+            function(data, status){
                 Swal.fire({
                     title: 'Success!',
                     text: 'Ordered successfully',
@@ -3313,6 +3309,8 @@ mysqli_close($conn);
         });
     });
 </script>
+
+
 
 
 

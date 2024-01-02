@@ -17,7 +17,6 @@ require_once('connection.php');
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <!-- bytewebster.com -->
@@ -78,13 +77,6 @@ require_once('connection.php');
                         <i class="bi bi-chat-dots"></i> Message
                         </a>
                     </li> 
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showratings()">
-                        <i class="bi bi-clipboard-data"></i> Shop Rating
-                        </a>
-                    </li> 
-
 
 
                 </ul>
@@ -1511,134 +1503,7 @@ $conn->close();
     </script>
 
 
-<!-- ... ratingstable  ... ---------------------------------------------------------------------------------------------------------------->
 
-<div  id="shopratingtable" style="display:none;" class="card shadow border-0 mb-7">
-                    <div class="card-header">
-                        <h5 class="mb-0">Shop Ratings</h5>
-                    </div>
-                    <div class="table-responsive">
-   
-                    <?php
-// Database connection parameters
-
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch data from the costumerrate table
-$sql = "SELECT CosName, Rate FROM costumerrate";
-$result = $conn->query($sql);
-
-// Check if there is data
-if ($result->num_rows > 0) {
-    // Process data for the line chart
-    $numericRatings = [];
-    while ($row = $result->fetch_assoc()) {
-        $customer = $row['CosName'];
-        $textRating = $row['Rate'];
-
-        // Convert text rating to numeric
-        switch ($textRating) {
-            case 'Poor':
-                $numericRating = 1;
-                break;
-            case 'Fair':
-                $numericRating = 2;
-                break;
-            case 'Very Good':
-                $numericRating = 3;
-                break;
-            case 'Excellent':
-                $numericRating = 4;
-                break;
-            default:
-                $numericRating = 0; // Default to 0 if unknown rating
-        }
-
-        $numericRatings[] = [$customer, $numericRating];
-    }
-} else {
-    echo "No data found in the costumerrate table.";
-}
-
-// Close the database connection
-$conn->close();
-?>
-
-
-
-
-<!-- Create a canvas for the line chart -->
-<canvas id="lineChart" width="400" height="200"></canvas>
-
-<script>
-// Use PHP data in JavaScript
-var ratingsData = <?php echo json_encode($numericRatings); ?>;
-
-// Extract labels and data for Chart.js
-var labels = ratingsData.map(function(item) {
-    return item[0];
-});
-
-var data = ratingsData.map(function(item) {
-    return item[1];
-});
-
-// Create a line chart
-var ctx = document.getElementById('lineChart').getContext('2d');
-var lineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Poor', 'Fair', 'Very Good', 'Excellent'],
-        datasets: [{
-            label: 'Customer Ratings',
-            data: data,
-            borderColor: '#E48F45',
-            borderWidth: 1,
-            pointRadius: 5,
-            pointHoverRadius: 10,
-        }]
-    },
-    options: {
-        scales: {
-            x: {
-                ticks: {
-                    beginAtZero: true
-                },
-                title: {
-                    display: true,
-                    text: 'Rating'
-                }
-            },
-            y: {
-                min: 0,
-                max: 5,
-                ticks: { stepSize: 1 },
-                title: {
-                    display: true,
-                    text: 'Numeric Rating'
-                }
-            }
-        }
-    }
-});
-</script>
-
-                   
-
-
-
-                    </div>
-               
-    </div>
-
-<!-- ... ratingstable  ... ---------------------------------------------------------------------------------------------------------------->
 
 <!-- ... ordertbl ... ---------------------------------------------------------------------------------------------------------------->
 
@@ -2313,12 +2178,10 @@ $conn->close();
 <div class="modal fade" id="deletorder">
     <div class="modal-dialog">
         <div class="modal-content">
-
-        <div style="background-color: #E48F45;" class="modal-header">
-                    <h4 style="color: #fff;" class="modal-title">Delete Order Details</h4>
-                    <button style="background-color: #E48F45; color: #fff;" type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Order Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
             <div class="modal-body">
                 <form  action="menudelete.php" method="post">
                     <div class="form-group">
@@ -2482,7 +2345,7 @@ $conn->close();
 </button>
 
 
-<button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn btn-sm m-1" data-toggle="modal" data-target="#deletorder">
+<button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn btn-sm m-1" data-toggle="modal" data-target="#">
     <i class="bi bi-trash"></i> Delete
 </button>
 
@@ -2628,15 +2491,15 @@ $conn->close();
     <script>
     $(document).ready(function() {
     $("#restatus").click(function() {
-      var REProcessFailedorder = $("#REProcessFailedorder").val();
-      var newreStatus = $("input[name='newreStatus']").val();
+      var reorderId = $("#REProcessFailedorder").val();
+      var renewStatus = $("input[name='newreStatus']").val();
       
      
       $.post(
         "update.php", // Replace with the actual file name for update
         {
-            REProcessFailedorder :REProcessFailedorder,
-            newreStatus:newreStatus
+            reorderId : reorderId,
+            renewStatus:renewStatus
            
          
         },
@@ -2755,6 +2618,10 @@ $conn->close();
 
 
 
+
+
+
+
                     </table>
 
 
@@ -2767,6 +2634,34 @@ $conn->close();
 
     </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

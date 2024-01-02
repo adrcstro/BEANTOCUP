@@ -7,7 +7,6 @@ function showAdmin() {
   document.getElementById('Message-table').style.display = 'none';
   document.getElementById('OrderHistory').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
 function showCostumers() {
   document.getElementById('Admin-table').style.display = 'none';
@@ -18,7 +17,6 @@ function showCostumers() {
   document.getElementById('Message-table').style.display = 'none';
   document.getElementById('OrderHistory').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
 
 function showNews() {
@@ -30,7 +28,6 @@ function showNews() {
   document.getElementById('Message-table').style.display = 'none';
   document.getElementById('OrderHistory').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
 
 function showMenu() {
@@ -42,7 +39,6 @@ function showMenu() {
   document.getElementById('Message-table').style.display = 'none';
   document.getElementById('OrderHistory').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
 
 function showOrders() {
@@ -54,7 +50,6 @@ function showOrders() {
   document.getElementById('OrderHistory').style.display = 'block';
   document.getElementById('Message-table').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'block';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
 
 function showMessage() {
@@ -66,21 +61,7 @@ function showMessage() {
   document.getElementById('Message-table').style.display = 'block';
   document.getElementById('OrderHistory').style.display = 'none';
   document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'none';
 }
-
-function showratings() {
-  document.getElementById('Admin-table').style.display = 'none';
-  document.getElementById('Passengers-table').style.display = 'none';
-  document.getElementById('createnews').style.display = 'none';
-  document.getElementById('Menu').style.display = 'none';
-  document.getElementById('Order').style.display = 'none';
-  document.getElementById('Message-table').style.display = 'none';
-  document.getElementById('OrderHistory').style.display = 'none';
-  document.getElementById('CompleteTransaction').style.display = 'none';
-  document.getElementById('shopratingtable').style.display = 'block';
-}
-
 
 
 

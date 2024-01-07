@@ -1818,7 +1818,7 @@ $conn->close();
     <select name="addorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        require_once('connection.php');
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -2186,7 +2186,10 @@ $conn->close();
     <select name="upaddorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        $servername = "localhost"; // Replace with your server name
+        $username = "root"; // Replace with your username
+        $password = ""; // Replace with your password
+        $dbname = "beantocup";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 

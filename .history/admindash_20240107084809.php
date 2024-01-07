@@ -1149,7 +1149,12 @@ $conn->close();
         <div class="row">
     <?php
         // Replace these with your actual database connection details
-      
+        $host = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "beantocup";
+
+       
 
         // Create a database connection
         $your_db_connection = mysqli_connect($servername, $username, $password, $dbname);
@@ -1406,6 +1411,9 @@ $conn->close();
       var BodyMenu = $("input[name='BodyMenu']").val();
      
      
+
+
+
       $.post(
         "update.php", // Replace with the actual file name for update
         {
@@ -1818,7 +1826,10 @@ $conn->close();
     <select name="addorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        $servername = "localhost"; // Replace with your server name
+        $username = "root"; // Replace with your username
+        $password = ""; // Replace with your password
+        $dbname = "beantocup";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -2186,7 +2197,10 @@ $conn->close();
     <select name="upaddorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        $servername = "localhost"; // Replace with your server name
+        $username = "root"; // Replace with your username
+        $password = ""; // Replace with your password
+        $dbname = "beantocup";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 

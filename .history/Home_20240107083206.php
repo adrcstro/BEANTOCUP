@@ -950,7 +950,11 @@
     <div class="row">
     <?php
         // Replace these with your actual database connection details
+       
+
         require_once('connection.php');
+
+
 
         // Create a database connection
         $your_db_connection = mysqli_connect($servername, $username, $password, $dbname);

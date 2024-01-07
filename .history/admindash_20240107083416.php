@@ -1149,10 +1149,13 @@ $conn->close();
         <div class="row">
     <?php
         // Replace these with your actual database connection details
-      
+        $host = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "beantocup";
 
         // Create a database connection
-        $your_db_connection = mysqli_connect($servername, $username, $password, $dbname);
+        $your_db_connection = mysqli_connect($host, $username, $password, $database);
 
         // Check the connection
         if (!$your_db_connection) {
@@ -1194,9 +1197,9 @@ $conn->close();
                 echo '<div class="modal fade" id="readMoreModal' . $row['MenuID'] . '" tabindex="-1" role="dialog" aria-labelledby="readMoreModalLabel' . $row['MenuID'] . '" aria-hidden="true">';
                 echo '<div class="modal-dialog read-more-modal" role="document">';
                 echo '<div class="modal-content">';
-                echo '<div  style="background-color: #E48F45;" class="modal-header">';
-                echo '<h5 style="color: #fff;" class="modal-title" id="readMoreModalLabel' . $row['MenuID'] . '">' . $header . '</h5>';
-                echo '<button style="background-color: #E48F45; color: #fff;"  type="button" class="close" data-dismiss="modal" aria-label="Close">';
+                echo '<div class="modal-header">';
+                echo '<h5 class="modal-title" id="readMoreModalLabel' . $row['MenuID'] . '">' . $header . '</h5>';
+                echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
                 echo '<span aria-hidden="true">&times;</span>';
                 echo '</button>';
                 echo '</div>';
@@ -1406,6 +1409,9 @@ $conn->close();
       var BodyMenu = $("input[name='BodyMenu']").val();
      
      
+
+
+
       $.post(
         "update.php", // Replace with the actual file name for update
         {
@@ -1818,7 +1824,10 @@ $conn->close();
     <select name="addorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        $servername = "localhost"; // Replace with your server name
+        $username = "root"; // Replace with your username
+        $password = ""; // Replace with your password
+        $dbname = "beantocup";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -2186,7 +2195,10 @@ $conn->close();
     <select name="upaddorItemsOrdered" class="form-control" required>
         <?php
         // Assuming you have a database connection established
-       
+        $servername = "localhost"; // Replace with your server name
+        $username = "root"; // Replace with your username
+        $password = ""; // Replace with your password
+        $dbname = "beantocup";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 

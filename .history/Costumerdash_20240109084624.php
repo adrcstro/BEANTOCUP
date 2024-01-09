@@ -619,7 +619,7 @@ echo '
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
                                 <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
+                                <span class="status">Process</span>
                             </div>
                         </div>
 
@@ -642,7 +642,7 @@ echo '
                         <div id="delivered" class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
-                                <img src="Images/completedelivered.svg" alt="Truck">
+                                <img src="Images/intransitorder.svg" alt="Truck">
                                 <span class="status">Delivered</span>
                             </div>
                         </div>

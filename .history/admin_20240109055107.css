@@ -45,23 +45,32 @@
 }
 
 
-.custom-progress-bar {
-    margin-top: 20px; /* Adjust the margin-top value as needed */
+
+
+.timeline {
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.progress-bar {
+    border: 1px solid #E48F45; /* Border color */
+    height: 20px; /* Adjust the height as needed */
+    background-color: #E48F45; /* Progress bar color */
+}
+
+.line {
+    height: 2px;
+    background-color: #E48F45; /* Adjust the color as needed */
+    margin: 15px 0; /* Adjust the margin as needed */
 }
 
 
-.center-items {
-    justify-content: center;
-}
-.timeline-item-container {
-    border: 2px solid #E48F45;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px; /* Adjust the margin-bottom for spacing between items */
-    margin: 0 20px;
-}
-
-/* Add margin-bottom to the last .timeline-item-container to prevent extra space */
 
 
 
@@ -88,18 +97,6 @@
     background-color: #994D1C; /* Replace with your desired background hover color */
     color: #fff;
 }
-
-#none{
-    background-color: #994D1C; /* Replace with your desired background hover color */
-    color: #fff;
-}
-
-.bg-E48F45 {
-    background-color: #E48F45;
-}
-
-
-
 .card-buttons {
     text-align: center;
 }

@@ -45,9 +45,6 @@
 }
 
 
-.custom-progress-bar {
-    margin-top: 20px; /* Adjust the margin-top value as needed */
-}
 
 
 .center-items {
@@ -88,18 +85,6 @@
     background-color: #994D1C; /* Replace with your desired background hover color */
     color: #fff;
 }
-
-#none{
-    background-color: #994D1C; /* Replace with your desired background hover color */
-    color: #fff;
-}
-
-.bg-E48F45 {
-    background-color: #E48F45;
-}
-
-
-
 .card-buttons {
     text-align: center;
 }

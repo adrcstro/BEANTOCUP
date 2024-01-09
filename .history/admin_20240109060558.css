@@ -45,11 +45,23 @@
 }
 
 
-.custom-progress-bar {
-    margin-top: 20px; /* Adjust the margin-top value as needed */
+
+.timeline {
+    display: flex;
+    justify-content: center; /* Center the timeline items */
 }
 
+.timeline-item {
+    text-align: center;
+    position: relative;
+    display: inline-block; /* Add this line to make items appear in one row */
+    margin: 0 10px; /* Adjust the margin as needed for spacing between items */
+}
 
+/* Remove styles related to the line */
+.line {
+    display: none; /* Hide the line */
+}
 .center-items {
     justify-content: center;
 }
@@ -58,10 +70,12 @@
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px; /* Adjust the margin-bottom for spacing between items */
-    margin: 0 20px;
 }
 
 /* Add margin-bottom to the last .timeline-item-container to prevent extra space */
+.timeline-item-container:last-child {
+    margin-bottom: 0;
+}
 
 
 
@@ -88,18 +102,6 @@
     background-color: #994D1C; /* Replace with your desired background hover color */
     color: #fff;
 }
-
-#none{
-    background-color: #994D1C; /* Replace with your desired background hover color */
-    color: #fff;
-}
-
-.bg-E48F45 {
-    background-color: #E48F45;
-}
-
-
-
 .card-buttons {
     text-align: center;
 }

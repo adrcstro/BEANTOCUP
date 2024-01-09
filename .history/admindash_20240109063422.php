@@ -2026,7 +2026,7 @@ $conn->close();
 
 
 
- 
+
 
 
 <div style="width: 80%; margin: auto; display:none;  margin-bottom: 10px;">
@@ -2035,10 +2035,26 @@ $conn->close();
 </div>
 
 <script>
-    function updateRating(rating) {
-        document.getElementById("newStatus").value = rating + "";
-        // You can customize this value as per your requirement
-    }
+    $(document).ready(function () {
+        $('.status-button').click(function () {
+            var status = $(this).data('status');
+            $('#statusContent').val(status);
+
+            // Get the progress bar element
+            var progressBar = $('.progress-bar');
+
+            // Set progress bar value based on the status
+            if (status === 'None') {
+                progressBar.css('width', '0%').attr('aria-valuenow', 0);
+            } else if (status === 'Order Process') {
+                progressBar.css('width', '25%').attr('aria-valuenow', 25);
+            } else if (status === 'In Transit') {
+                progressBar.css('width', '75%').attr('aria-valuenow', 75);
+            } else if (status === 'Delivered') {
+                progressBar.css('width', '100%').attr('aria-valuenow', 100);
+            }
+        });
+    });
 </script>
 
 

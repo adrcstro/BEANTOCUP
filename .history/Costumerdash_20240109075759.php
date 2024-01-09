@@ -603,68 +603,75 @@ echo '
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
 
-                        <div id="none" class="timeline-item-container mb-2">
+                        <div id="none"  class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/ordered.svg" alt="Shopping Cart">
+                                <i class="fas fa-shopping-cart"></i>
                                 <span class="status">Ordered</span>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="inprocess" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
-                            </div>
-                        </div>
 
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-3">
 
-                        <div id="intransit" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/intransitorder.svg" alt="Truck">
-                                <span class="status">In Transit</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="delivered" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/completedelivered.svg" alt="Truck">
-                                <span class="status">Delivered</span>
-                            </div>
-                        </div>
-
+                    <div id="process" class="timeline-item-container mb-2">
+                    <div class="timeline-item text-center">
+                        <i class="fas fa-cog"></i>
+                        <span class="status">Process</span>
                     </div>
                 </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                    <div id="intransit" class="timeline-item-container mb-2">
+                    <div class="timeline-item text-center">
+                        <i class="fas fa-truck"></i>
+                        <span class="status">In Transit</span>
+                    </div>
+                </div>
+
+
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+
+                    <div id="delivered" class="timeline-item-container mb-2">
+    <div class="timeline-item text-center">
+        <i class="fas fa-check-circle"></i>
+        <span class="status">Delivered</span>
+    </div>
+</div>
+
+
+                        
+                    </div>
+                </div>
+
+            
 
                 <div class="row">
                     <div class="col-12">
                         <!-- Progress Bar with custom class -->
                         <div class="progress custom-progress-bar">
-                            <div class="progress-bar bg-E48F45" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
-
+                
+              
                 <input class="form-control mt-3 text-center" type="text" id="statusContent" readonly>
 
+              
+                
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -703,7 +710,7 @@ mysqli_close($conn);
 ?>
  
 
-<script>
+ <script>
     $(document).ready(function () {
         $('.status-button').click(function () {
             var status = $(this).data('status');
@@ -714,15 +721,15 @@ mysqli_close($conn);
             switch (status) {
                 case 'Order Process':
                     setProgressBarWidth(progressBar, 38);
-                    changeBoxColors(['inprocess']);
+                    changeBoxColors('process');
                     break;
                 case 'Intransit':
                     setProgressBarWidth(progressBar, 63);
-                    changeBoxColors(['inprocess', 'intransit']);
+                    changeBoxColors(['process', 'intransit']);
                     break;
                 case 'Delivered':
                     setProgressBarWidth(progressBar, 100);
-                    changeBoxColors(['inprocess', 'intransit', 'delivered']);
+                    changeBoxColors(['process', 'intransit', 'delivered']);
                     break;
                 default:
                     setProgressBarWidth(progressBar, 10);
@@ -732,7 +739,7 @@ mysqli_close($conn);
         });
 
         function changeBoxColors(boxIds) {
-            // Reset background-color and color for all boxes
+            // Reset box colors to default
             resetBoxColors();
 
             // Change background-color and color for specified boxes
@@ -759,6 +766,9 @@ mysqli_close($conn);
         }
     });
 </script>
+
+
+
                     </div>
                     <div class="card-footer border-0 py-3 d-flex justify-content-center flex-wrap">
 

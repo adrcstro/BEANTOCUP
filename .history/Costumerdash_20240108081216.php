@@ -555,122 +555,30 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                         </tr> 
                     </thead>
                     <tbody>'; // added tbody for better structure
-        
+    
             // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                // Check if the order status is not "DELIVERED"
-                if ($row["Status"] !== "Delivered") {
-                    // Limit text length to 50 characters
-                    $itemsOrdered = substr($row["ItemsOrdered"], 0, 20);
-                    $size = substr($row["Size"], 0, 20);
-                    // Add similar substr logic for other columns if needed
-                    echo '<tr>
-                    <td>' . $row["OrderID"] . '</td>
-                    <td>' . $itemsOrdered . '....</td>
-                    <td>' . $size . '....</td>
-                    <td>' . $row["QTY"] . '</td>
-                    <td>' . $row["DatePlaced"] . '</td>
-                    <td>' . $row["PaymentMethod"] . '</td>
-                    <td>
-                        <button type="button" class="status-button" data-toggle="modal" data-target="#statusModal" data-status="' . $row["Status"] . '">
-                            <i class="bi bi-eye"></i> View Status
-                        </button>
-                    </td>
-                  </tr>';
-            
-            
+            // Output data of each row
+while ($row = $result->fetch_assoc()) {
+    // Check if the order status is not "DELIVERED"
+    if ($row["Status"] !== "Delivered") {
+        echo '<tr>
+                <td>' . $row["OrderID"] . '</td>
+                <td>' . $row["ItemsOrdered"] . '</td>
+                <td>' . $row["Size"] . '</td>
+                <td>' . $row["QTY"] . '</td>
+                <td>' . $row["DatePlaced"] . '</td>
+                <td>' . $row["PaymentMethod"] . '</td>
+                <td><button type="button" class="status-button">' . $row["Status"] . '</button></td>
+
+                
+            </tr>';
 
         // Accumulate the amount for total calculation
         $totalAmount += $row["Amount"];
     }
 }
 
-
 echo '</tbody></table>';
-
-echo '
-<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
-    <div id="statussection" class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div style="background-color: #E48F45;" class="modal-header">
-                <h5 style="color: #fff;" class="modal-title" id="statusModalLabel">Order Status</h5>
-                <button style="background-color: #E48F45; color: #fff;" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="none" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/ordered.svg" alt="Shopping Cart">
-                                <span class="status">Ordered</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="inprocess" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="intransit" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/intransitorder.svg" alt="Truck">
-                                <span class="status">In Transit</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="delivered" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/completedelivered.svg" alt="Truck">
-                                <span class="status">Delivered</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Progress Bar with custom class -->
-                        <div class="progress custom-progress-bar">
-                            <div class="progress-bar bg-E48F45" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <input class="form-control mt-3 text-center" type="text" id="statusContent" readonly>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-';
-
-
 
         } else {
             echo '<h2>No Delivered Orders</h2>';
@@ -703,62 +611,8 @@ mysqli_close($conn);
 ?>
  
 
-<script>
-    $(document).ready(function () {
-        $('.status-button').click(function () {
-            var status = $(this).data('status');
-            $('#statusContent').val(status);
 
-            // Update progress bar based on status
-            var progressBar = $('.progress-bar');
-            switch (status) {
-                case 'Order Process':
-                    setProgressBarWidth(progressBar, 38);
-                    changeBoxColors(['inprocess']);
-                    break;
-                case 'Intransit':
-                    setProgressBarWidth(progressBar, 63);
-                    changeBoxColors(['inprocess', 'intransit']);
-                    break;
-                case 'Delivered':
-                    setProgressBarWidth(progressBar, 100);
-                    changeBoxColors(['inprocess', 'intransit', 'delivered']);
-                    break;
-                default:
-                    setProgressBarWidth(progressBar, 10);
-                    // Reset box colors to default if status is not recognized
-                    resetBoxColors();
-            }
-        });
 
-        function changeBoxColors(boxIds) {
-            // Reset background-color and color for all boxes
-            resetBoxColors();
-
-            // Change background-color and color for specified boxes
-            for (var i = 0; i < boxIds.length; i++) {
-                $('#' + boxIds[i]).css({
-                    'background-color': '#994D1C',
-                    'color': '#fff'
-                });
-            }
-        }
-
-        function resetBoxColors() {
-            // Reset background-color and color for all boxes
-            $('.timeline-item-container').css({
-                'background-color': '',
-                'color': ''
-            });
-        }
-
-        // Function to set the width of the progress bar
-        function setProgressBarWidth(progressBar, width) {
-            progressBar.css('width', width + '%');
-            progressBar.attr('aria-valuenow', width);
-        }
-    });
-</script>
                     </div>
                     <div class="card-footer border-0 py-3 d-flex justify-content-center flex-wrap">
 
@@ -1404,24 +1258,18 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>
-                <td>' . $row["OrderID"] . '</td>
-                <td>' . substr($row["ItemsOrdered"], 0, 30);
-                echo (strlen($row["ItemsOrdered"]) > 30) ? '...' : ''; // Add "..." if text is truncated
-                echo '</td>
-                <td>' . substr($row["Size"], 0, 10);
-                echo (strlen($row["Size"]) > 10) ? '...' : ''; // Add "..." if text is truncated
-                echo '</td>
-                <td>' . $row["QTY"] . '</td>
-                <td>' . $row["DatePlaced"] . '</td>
-                <td>' . $row["PaymentMethod"] . '</td>
-                <td>
-                <button type="button" class="status-button" data-toggle="modal" data-target="#statusModal" data-status="' . $row["Status"] . '">
-                    <i class="bi bi-eye"></i> View Status
-                </button>
-            </td>
-                <td>' . $row["CostumerConfirm"] . '</td>
-            </tr>';
-        
+                        
+                        <td>' . $row["OrderID"] . '</td>
+                        <td>' . $row["ItemsOrdered"] . '</td>
+                        <td>' . $row["Size"] . '</td>
+                        <td>' . $row["QTY"] . '</td>
+                        <td>' . $row["DatePlaced"] . '</td>
+                        <td>' . $row["PaymentMethod"] . '</td>
+                        <td>' . $row["Status"] . '</td>
+                        <td>' . $row["CostumerConfirm"] . '</td>
+
+
+                    </tr>';
 
                 // Accumulate the amount for total calculation
                 $totalAmount += $row["Amount"];

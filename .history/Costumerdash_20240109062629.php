@@ -572,7 +572,7 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                     <td>' . $row["DatePlaced"] . '</td>
                     <td>' . $row["PaymentMethod"] . '</td>
                     <td>
-                        <button type="button" class="status-button" data-toggle="modal" data-target="#statusModal" data-status="' . $row["Status"] . '">
+                        <button type="button" class="status-button" data-toggle="modal" data-target="#statusModal" ' . $row["Status"] . '>
                             <i class="bi bi-eye"></i> View Status
                         </button>
                     </td>
@@ -599,72 +599,60 @@ echo '
                 </button>
             </div>
             <div class="modal-body">
-
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="none" class="timeline-item-container mb-2">
+                        <div class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/ordered.svg" alt="Shopping Cart">
+                                <i class="fas fa-shopping-cart"></i>
                                 <span class="status">Ordered</span>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="inprocess" class="timeline-item-container mb-2">
+                        <div class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
+                                <i class="fas fa-cog"></i>
+                                <span class="status">Process</span>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="intransit" class="timeline-item-container mb-2">
+                        <div class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/intransitorder.svg" alt="Truck">
+                                <i class="fas fa-truck"></i>
                                 <span class="status">In Transit</span>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-12 col-md-6 col-lg-3">
-
-                        <div id="delivered" class="timeline-item-container mb-2">
+                        <div class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/completedelivered.svg" alt="Truck">
+                                <i class="fas fa-check-circle"></i>
                                 <span class="status">Delivered</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
+                <!-- ... (your existing code) ... -->
 
                 <div class="row">
                     <div class="col-12">
                         <!-- Progress Bar with custom class -->
                         <div class="progress custom-progress-bar">
-                            <div class="progress-bar bg-E48F45" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
-
+                
+              
                 <input class="form-control mt-3 text-center" type="text" id="statusContent" readonly>
-
+              
+                
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -702,63 +690,17 @@ echo '
 mysqli_close($conn);
 ?>
  
-
-<script>
+ <script>
     $(document).ready(function () {
         $('.status-button').click(function () {
             var status = $(this).data('status');
-            $('#statusContent').val(status);
-
-            // Update progress bar based on status
-            var progressBar = $('.progress-bar');
-            switch (status) {
-                case 'Order Process':
-                    setProgressBarWidth(progressBar, 38);
-                    changeBoxColors(['inprocess']);
-                    break;
-                case 'Intransit':
-                    setProgressBarWidth(progressBar, 63);
-                    changeBoxColors(['inprocess', 'intransit']);
-                    break;
-                case 'Delivered':
-                    setProgressBarWidth(progressBar, 100);
-                    changeBoxColors(['inprocess', 'intransit', 'delivered']);
-                    break;
-                default:
-                    setProgressBarWidth(progressBar, 10);
-                    // Reset box colors to default if status is not recognized
-                    resetBoxColors();
-            }
+            $('#statusContent').val('Order Status: ' + status);
         });
-
-        function changeBoxColors(boxIds) {
-            // Reset background-color and color for all boxes
-            resetBoxColors();
-
-            // Change background-color and color for specified boxes
-            for (var i = 0; i < boxIds.length; i++) {
-                $('#' + boxIds[i]).css({
-                    'background-color': '#994D1C',
-                    'color': '#fff'
-                });
-            }
-        }
-
-        function resetBoxColors() {
-            // Reset background-color and color for all boxes
-            $('.timeline-item-container').css({
-                'background-color': '',
-                'color': ''
-            });
-        }
-
-        // Function to set the width of the progress bar
-        function setProgressBarWidth(progressBar, width) {
-            progressBar.css('width', width + '%');
-            progressBar.attr('aria-valuenow', width);
-        }
     });
 </script>
+
+
+
                     </div>
                     <div class="card-footer border-0 py-3 d-flex justify-content-center flex-wrap">
 
@@ -1404,24 +1346,18 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>
-                <td>' . $row["OrderID"] . '</td>
-                <td>' . substr($row["ItemsOrdered"], 0, 30);
-                echo (strlen($row["ItemsOrdered"]) > 30) ? '...' : ''; // Add "..." if text is truncated
-                echo '</td>
-                <td>' . substr($row["Size"], 0, 10);
-                echo (strlen($row["Size"]) > 10) ? '...' : ''; // Add "..." if text is truncated
-                echo '</td>
-                <td>' . $row["QTY"] . '</td>
-                <td>' . $row["DatePlaced"] . '</td>
-                <td>' . $row["PaymentMethod"] . '</td>
-                <td>
-                <button type="button" class="status-button" data-toggle="modal" data-target="#statusModal" data-status="' . $row["Status"] . '">
-                    <i class="bi bi-eye"></i> View Status
-                </button>
-            </td>
-                <td>' . $row["CostumerConfirm"] . '</td>
-            </tr>';
-        
+                        
+                        <td>' . $row["OrderID"] . '</td>
+                        <td>' . $row["ItemsOrdered"] . '</td>
+                        <td>' . $row["Size"] . '</td>
+                        <td>' . $row["QTY"] . '</td>
+                        <td>' . $row["DatePlaced"] . '</td>
+                        <td>' . $row["PaymentMethod"] . '</td>
+                        <td>' . $row["Status"] . '</td>
+                        <td>' . $row["CostumerConfirm"] . '</td>
+
+
+                    </tr>';
 
                 // Accumulate the amount for total calculation
                 $totalAmount += $row["Amount"];

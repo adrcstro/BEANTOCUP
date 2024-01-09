@@ -23,46 +23,17 @@
    font-weight: 200;
 }
 .status-button {
-    background-color: #E48F45; /* Orange */
+    background-color: #E48F45; /* Green */
     border-radius: 5px;
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-
-    /* Hover effect */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
-.status-button:hover {
-    background-color: #D4752B; /* Darker Orange on hover */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-}
-
-
-.custom-progress-bar {
-    margin-top: 20px; /* Adjust the margin-top value as needed */
-}
-
-
-.center-items {
-    justify-content: center;
-}
-.timeline-item-container {
-    border: 2px solid #E48F45;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px; /* Adjust the margin-bottom for spacing between items */
-    margin: 0 20px;
-}
-
-/* Add margin-bottom to the last .timeline-item-container to prevent extra space */
-
 
 
 .custom-card {
@@ -88,18 +59,6 @@
     background-color: #994D1C; /* Replace with your desired background hover color */
     color: #fff;
 }
-
-#none{
-    background-color: #994D1C; /* Replace with your desired background hover color */
-    color: #fff;
-}
-
-.bg-E48F45 {
-    background-color: #E48F45;
-}
-
-
-
 .card-buttons {
     text-align: center;
 }
@@ -151,9 +110,7 @@
 
 
 
-#statussection{
-    max-width: 800px;
-}
+
 
 
 

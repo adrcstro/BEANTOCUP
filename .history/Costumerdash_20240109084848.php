@@ -619,7 +619,7 @@ echo '
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
                                 <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
+                                <span class="status">Process</span>
                             </div>
                         </div>
 

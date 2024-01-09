@@ -606,7 +606,7 @@ echo '
                         <div id="none" class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
-                                <img src="Images/ordered.svg" alt="Shopping Cart">
+                                <img src="Images/COD.svg" alt="Shopping Cart">
                                 <span class="status">Ordered</span>
                             </div>
                         </div>
@@ -618,8 +618,8 @@ echo '
                         <div id="inprocess" class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
-                                <img src="Images/processing.svg" alt="Cog">
-                                <span class="status"> On Process</span>
+                                <img src="path/to/cog.svg" alt="Cog">
+                                <span class="status">Process</span>
                             </div>
                         </div>
 
@@ -630,7 +630,7 @@ echo '
                         <div id="intransit" class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
-                                <img src="Images/intransitorder.svg" alt="Truck">
+                                <img src="path/to/truck.svg" alt="Truck">
                                 <span class="status">In Transit</span>
                             </div>
                         </div>
@@ -642,7 +642,7 @@ echo '
                         <div id="delivered" class="timeline-item-container mb-2">
                             <div class="timeline-item text-center">
                                 <!-- Replace with your SVG image -->
-                                <img src="Images/completedelivered.svg" alt="Truck">
+                                <img src="path/to/check-circle.svg" alt="Check Circle">
                                 <span class="status">Delivered</span>
                             </div>
                         </div>

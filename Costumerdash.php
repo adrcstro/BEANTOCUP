@@ -589,6 +589,7 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
 echo '</tbody></table>';
 
 echo '
+
 <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
     <div id="statussection" class="modal-dialog" role="document">
         <div class="modal-content">
@@ -603,13 +604,14 @@ echo '
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
 
-                        <div id="none" class="timeline-item-container mb-2">
-                            <div class="timeline-item text-center">
-                                <!-- Replace with your SVG image -->
-                                <img src="Images/ordered.svg" alt="Shopping Cart">
-                                <span class="status">Ordered</span>
-                            </div>
-                        </div>
+                    <div id="none" class="timeline-item-container mb-2">
+                    <div class="timeline-item text-center">
+                        <!-- Replace with your SVG image -->
+                        <img src="Images/ordered.svg" alt="Shopping Cart">
+                        <span class="status">Ordered</span>
+                    </div>
+                </div>
+                
 
                     </div>
 
@@ -659,13 +661,44 @@ echo '
                     </div>
                 </div>
 
-                <input class="form-control mt-3 text-center" type="text" id="statusContent" readonly>
+                <!-- Add this HTML snippet after the progress bar -->
+                <div class="row mt-3">
+                <div class="col-3 text-center">
+                    <div class="completed-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p>Ordered</p>
+                </div>
+            
+                <div class="col-3 text-center" id="inprocess-check" style="display: none;">
+                    <div class="completed-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p>On Process</p>
+                </div>
+            
+                <div class="col-3 text-center" id="intransit-check" style="display: none;">
+                    <div class="completed-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p>In Transit</p>
+                </div>
+            
+                <div class="col-3 text-center" id="delivered-check" style="display: none;">
+                    <div class="completed-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p>Delivered</p>
+                </div>
+            </div>
+            
+
+                <input style="display:none;" class="form-control mt-3 text-center" type="text" id="statusContent" readonly>
 
             </div>
         </div>
     </div>
-</div>
-
+</div>   
 
 
 ';
@@ -701,10 +734,13 @@ echo '
 // Close the database connection
 mysqli_close($conn);
 ?>
- 
+
 
 <script>
     $(document).ready(function () {
+        // Initially hide all check icons
+        $('#inprocess-check, #intransit-check, #delivered-check').hide();
+
         $('.status-button').click(function () {
             var status = $(this).data('status');
             $('#statusContent').val(status);
@@ -712,22 +748,36 @@ mysqli_close($conn);
             // Update progress bar based on status
             var progressBar = $('.progress-bar');
             switch (status) {
+                case '':
+case 'None':
+    setProgressBarWidth(progressBar, 10);
+    changeBoxColors(['none']); // Apply background color to the 'none' timeline item
+    $('#inprocess-check, #intransit-check, #delivered-check').hide();
+    break;
+
                 case 'Order Process':
                     setProgressBarWidth(progressBar, 38);
                     changeBoxColors(['inprocess']);
+                    $('#inprocess-check').show();
+                    $('#intransit-check, #delivered-check').hide();
                     break;
                 case 'Intransit':
                     setProgressBarWidth(progressBar, 63);
                     changeBoxColors(['inprocess', 'intransit']);
+                    $('#inprocess-check, #intransit-check').show();
+                    $('#delivered-check').hide();
                     break;
                 case 'Delivered':
                     setProgressBarWidth(progressBar, 100);
                     changeBoxColors(['inprocess', 'intransit', 'delivered']);
+                    $('#inprocess-check, #intransit-check, #delivered-check').show();
                     break;
                 default:
                     setProgressBarWidth(progressBar, 10);
                     // Reset box colors to default if status is not recognized
                     resetBoxColors();
+                    // Reset display for all check icons
+                    $('#inprocess-check, #intransit-check, #delivered-check').hide();
             }
         });
 
@@ -757,8 +807,13 @@ mysqli_close($conn);
             progressBar.css('width', width + '%');
             progressBar.attr('aria-valuenow', width);
         }
+
+        // Other functions remain unchanged
     });
 </script>
+
+
+
                     </div>
                     <div class="card-footer border-0 py-3 d-flex justify-content-center flex-wrap">
 

@@ -151,10 +151,34 @@
 </div>
 <div class="abt-container">
 <section class="about">
-  <div class="about-images">
-<img style="border-radius: 20px;" src="Images/co4.jpg">
-  </div>
-<div class="about-content">
+
+<div class="row">
+      <div class="col-md-6  mt-4">
+        <!-- Bootstrap Carousel -->
+        <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div  style="border-radius: 10px;" class="carousel-item active">
+              <img class="img-fluid rounded" src="Images/co4.jpg" alt="Coffee Image 1">
+            </div>
+            <div  style="border-radius: 10px;" class="carousel-item">
+              <img class="img-fluid rounded" src="Images/abt2.jpg" alt="Coffee Image 2">
+            </div>
+            <div  style="border-radius: 10px;" class="carousel-item">
+              <img class="img-fluid rounded" src="Images/abt3.jpg" alt="Coffee Image 3">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+  
+<div class="about-content mt-3">
   <h2>Organic products made with love.
     That's what you get from us.</h2>
 <p>Welcome to "Bean to Cup," a haven for discerning coffee enthusiasts. Here at Bean to Cup, 
@@ -167,12 +191,9 @@
   atmosphere beckons you to unwind and savor the moment.</p>
   <a href="https://www.facebook.com/beantocupph/" target="_blank" style="background-color: #E48F45;" class="read-more">Read More</a>
 </div>
+</div>
 </section>
 </div>
-
-
-
-
 </section>
 
 <!--Menu start------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->

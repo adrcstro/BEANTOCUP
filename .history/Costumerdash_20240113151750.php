@@ -2172,7 +2172,7 @@ function deleteSelectedOrder() {
                 echo '<p class="card-text"><small class="text-muted">' . date('F j, Y', strtotime($date)) . ' | ' . date('g:i A', strtotime($time)) . '</small></p>';
                 echo '</div>';
                 echo '<h5 class="card-title">' . $header . '</h5>';
-                $trimmed_body = strlen($body) > 30 ? substr($body, 0, 30) . '...' : $body;
+                $trimmed_body = strlen($body) > 90 ? substr($body, 0, 90) . '...' : $body;
                 echo '<p class="card-text">' . $trimmed_body . '</p>';
                 echo '</div>';
                 echo '<div style="border:none;" class="card-footer text-center bg-transparent">';
@@ -3478,20 +3478,19 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
 
         if ($result->num_rows > 0) {
             // Display the order details table
-            echo '<div class="table-responsive">
-                    <table class="table table-hover table-nowrap">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Order Image</th>
-                                <th>Order-ID</th>
-                                <th>Items Ordered</th>
-                                <th>Size</th>
-                                <th>Quantity</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>'; // added tbody for better structure
-        
+            echo '<table class="table table-hover table-nowrap">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Order Image</th>
+                            <th>Order-ID</th>
+                            <th>Items Ordered</th>
+                            <th>Size</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>'; // added tbody for better structure
+
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>
@@ -3503,11 +3502,8 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
                         <td>' . $row["Amount"] . '</td>
                     </tr>';
             }
-        
-            echo '</tbody></table>
-                </div>';
-        
-        
+
+            echo '</tbody></table>';
 
             // Initialize arrays to store individual data
             $itemsOrdered = [];
@@ -3701,9 +3697,7 @@ mysqli_close($conn);
 
 <div class="modal-footer">
                     <button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn" data-dismiss="modal">Close</button>
-                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">
-    Place Order: $<?php echo $totalAmount; ?>
-</button>
+                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">Place Order</button>
 
                 </div>
                 </form>

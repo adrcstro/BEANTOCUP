@@ -3701,9 +3701,7 @@ mysqli_close($conn);
 
 <div class="modal-footer">
                     <button style="background-color: #E48F45; color: #fff;" type="button" class="btn btn" data-dismiss="modal">Close</button>
-                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">
-    Place Order: $<?php echo $totalAmount; ?>
-</button>
+                    <button style="background-color: #E48F45; color: #fff;" id="placeorder" type="submit" class="btn btn">Place Order</button>
 
                 </div>
                 </form>

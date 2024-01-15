@@ -1240,10 +1240,7 @@ case 'None':
                         $statusData = $statusResult->fetch_assoc();
                         $orderStatus = $statusData["Status"];
 
-                        // Only display the option if the status is none of 'In Transit', 'On Process', 'Delivered'
-                        if ($orderStatus = 'Intransit' && $orderStatus = 'Order Process' && $orderStatus = 'Delivered') {
-                            echo '<option value="' . $orderId . '">' . $orderId . '</option>';
-                        }
+                      
                     }
                 }
             } else {

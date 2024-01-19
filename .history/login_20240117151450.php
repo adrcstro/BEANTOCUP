@@ -1,7 +1,4 @@
-<?php
 
-session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +28,7 @@ session_start();
                         </div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
-                                <div class="w-100">
+                                <div id="loginlogo" class="w-100">
                                     <h3 style="text-align: center;" class="mb-4">Welcome to BEAN2CUP<i
                                             style="margin-left: 10px;" class="fas fa-mug-hot" aria-hidden="true"></i></h3>
                                 </div>
@@ -95,51 +92,74 @@ session_start();
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
+
+
+
+    
 </body>
 
 </html>
 <?php
-// Include your database connection file
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "beantocup";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve user input
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $userType = $_POST['user_type']; // Added line
+    $usertype = $_POST['usertype'];
 
-    // Define the table based on the selected user type
-    $table = ($userType == 'admin') ? 'admintbl' : 'costumers';
+    // Validate user inputs (add more validation as needed)
 
-    // SQL query to check if the user exists with the provided credentials and user type
-    $query = "SELECT * FROM $table WHERE Username = '$username' AND Password = '$password'";
+    $table_name = "";
+    $column_name = "UserID, Username, Password"; // Add the column name you want to fetch here
 
-    // Execute the query
-    $result = mysqli_query($conn, $query);
-
-    // Check if there is a matching user
-    if (mysqli_num_rows($result) > 0) {
-        // User found, store user data in session
-    
-        $_SESSION['username'] = $username;
-        $_SESSION['userType'] = $userType;
-
-        // Redirect to the dashboard
-        $redirectUrl = ($userType == 'admin') ? 'admindash.php' : 'Costumerdash.php';
-       
-        exit();
-    } else {
-        // No matching user found
-        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-        echo "<script>swal('Invalid Username or Password', '', 'error');</script>";
+    if ($usertype == 'admin') {
+        $table_name = "admintbl";
+    } elseif ($usertype == 'driver') {
+        $table_name = "driverstbl";
+    } elseif ($usertype == 'passenger') {
+        $table_name = "passengertbl";
     }
 
-    // Close the database connection
-    mysqli_close($conn);
+    $sql = "SELECT $column_name FROM $table_name WHERE username = ? AND password =?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        $loggedInUserID = $row['UserID'];
+        $loggedInUsername = $row['Username'];
+
+        $redirectUrl = '';
+        if ($usertype == 'passenger') {
+            $loggedInPassengerID = $row['PassengerID']; // Update with the correct column name
+            $redirectUrl = "passengerdash.php?username=" . urlencode($loggedInUsername) . "&id=" . $loggedInPassengerID;
+        } elseif ($usertype == 'admin') {
+            $redirectUrl = "admin.php";
+        } elseif ($usertype == 'driver') {
+            $loggedInDriverID = $row['DriverID']; // Update with the correct column name
+            $redirectUrl = "driverdash.php?username=" . urlencode($loggedInUsername) . "&id=" . $loggedInDriverID;
+        }
+
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Login Successful!', '', 'success');</script>";
+
+        // Adjusted redirection URL with user ID and username
+        echo "<script>setTimeout(function(){ window.location.href = '$redirectUrl'; }, 2000);</script>";
+        exit();
+    } else {
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Invalid Username or Password', '', 'error');</script>";
+        echo "<script>setTimeout(function(){ window.location.href = 'login.php'; }, 2000);</script>"; // Redirect to login page after 2 seconds
+        exit();
+    }
 }
+
+$conn->close();
 ?>

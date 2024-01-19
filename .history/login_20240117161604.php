@@ -28,18 +28,18 @@
                         </div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
-                                <div class="w-100">
+                                <div id="loginlogo" class="w-100">
                                     <h3 style="text-align: center;" class="mb-4">Welcome to BEAN2CUP<i
                                             style="margin-left: 10px;" class="fas fa-mug-hot" aria-hidden="true"></i></h3>
                                 </div>
                             </div>
-                            <form action="login.php" method="post" class="signin-form">
+                            <form action="" method="post" class="signin-form">
 
 <!-- Add this inside the form -->
 <div class="form-group mb-3">
     <label class="label" for="user_type">Login as</label>
     <select class="form-control" name="user_type" required>
-    <input type="hidden" name="user_type" value="customer">
+        <option value="customer">Customer</option>
         <option value="admin">Admin</option>
     </select>
 </div>
@@ -92,12 +92,14 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
+
+
+
+    
 </body>
 
 </html>
 <?php
-session_start(); // Start the session
-
 // Include your database connection file
 $servername = "localhost";
 $username = "root";
@@ -105,49 +107,55 @@ $password = "";
 $dbname = "beantocup";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve user input
     $username = $_POST['username'];
     $password = $_POST['password'];
     $userType = $_POST['user_type'];
 
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // You should hash the password in a real-world scenario
+    // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $table = ($userType == 'admin') ? 'admintbl' : 'costumers';
-
-    // Use prepared statements to prevent SQL injection
-    $stmt = $conn->prepare("SELECT * FROM $table WHERE Username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
-        // Verify the hashed password
-        if (password_verify($password, $row['Password'])) {
-            // Set session variables
-            $_SESSION['username'] = $username;
-            $_SESSION['user_type'] = $userType;
-
-            // Redirect to the dashboard
-            $redirectUrl = ($userType == 'admin') ? 'admindash.php' : 'Costumerdash.php';
-            header("Location: $redirectUrl");
-            exit();
-        } else {
-            echo "Invalid Password";
-        }
+    // Define the table and dashboard based on the selected user type
+    if ($userType == 'admin') {
+        $table = 'admintbl';
+        $dashboard = 'admindash.php';
     } else {
-        echo "User not found";
+        $table = 'costumers';
+        $dashboard = 'Costumerdash.php';
     }
 
-    $stmt->close();
+    // SQL query to check if the user exists with the provided credentials and user type
+    $query = "SELECT * FROM $table WHERE Username = '$username' AND Password = '$password'";
+
+    // Execute the query
+    $result = mysqli_query($conn, $query);
+
+    // Check if there is a matching user
+    if (mysqli_num_rows($result) > 0) {
+        // Fetch the user data
+        $row = mysqli_fetch_assoc($result);
+
+        // Get user information
+        $loggedInCostumerID = $row['CostumerID'];
+        $loggedInUsername = $username;
+
+        // Display success alert
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Login Successful!', '', 'success');</script>";
+        
+        // Redirect to the appropriate dashboard with user information in the URL
+        echo "<script>setTimeout(function(){ window.location.href = '$dashboard?CostumerID=$loggedInCostumerID&username=$loggedInUsername'; }, 2000);</script>";
+        exit();
+    } else {
+        // No matching user found
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Invalid Username or Password', '', 'error');</script>";
+        echo "<script>setTimeout(function(){ window.location.href = 'login.php'; }, 2000);</script>"; // Redirect to login page after 2 seconds
+    }
 }
 
-$conn->close();
+// Close the database connection
+mysqli_close($conn);
 ?>

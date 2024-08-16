@@ -35,7 +35,7 @@ require_once('connection.php');
             </button>
             <!-- Brand -->
             <a id="admidashnlogo"class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <h3>BEANTOCUP<i class="bi bi-cup-hot-fill"></i></h3>
+            <h3>BREWBUDDY<i class="bi bi-cup-hot-fill"></i></h3>
 
 
             </a>
@@ -52,7 +52,7 @@ require_once('connection.php');
                     </li>
                 
                  
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="#" onclick="showCostumers()">
                             <i class="bi bi-people"></i> Costumers
                         </a>
@@ -62,7 +62,7 @@ require_once('connection.php');
                             <i class="bi bi-file-text"></i> Orders
                         </a>
                     </li>
-                   <li class="nav-item">
+                   <li class="nav-item" style="display: none">
                         <a class="nav-link" href="#" onclick="showNews()">
                         <i class="bi bi-newspaper"></i> News
                         </a>
@@ -73,13 +73,13 @@ require_once('connection.php');
                         </a>
                     </li> 
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: none">
                         <a class="nav-link" href="#" onclick="showMessage()">
                         <i class="bi bi-chat-dots"></i> Message
                         </a>
                     </li> 
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: none">
                         <a class="nav-link" href="#" onclick="showratings()">
                         <i class="bi bi-clipboard-data"></i> Shop Rating
                         </a>
@@ -139,7 +139,7 @@ function logout() {
                 <div class="mb-npx">
                     <div class="row align-items-center">
                         <div style="text-align: center;" class="col-12 mb-4 mb-sm-0"  id="headertextdash">
-                            <h1 class="h2 mb-0 ls-tight">BEANTOCUP ORDERING MANAGEMENT</h1>
+                            <h1 class="h2 mb-0 ls-tight">BEAN2CUP ORDERING MANAGEMENT</h1>
                         </div>
                         <!-- Actions -->
                       
@@ -339,7 +339,7 @@ $conn->close();
 
 
 
-                    <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="col-xl-3 col-sm-6 col-12" >
                         <div class="card shadow border-0">
                             <div class="card-body">
                                 <div class="row">

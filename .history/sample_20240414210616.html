@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallax Gaming Room</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  .parallax-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 1px;
+    perspective-origin: 0 0;
+    height: 100vh;
+    position: relative;
+  }
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-style: preserve-3d;
+  }
+  .bg {
+    background-color: black;
+    transform: translateZ(-2px) scale(3);
+    z-index: -1;
+    height: 300vh; /* Adjust as needed */
+  }
+  .midground {
+    transform: translateZ(-1px) scale(2);
+    z-index: 0;
+    height: 200vh; /* Adjust as needed */
+  }
+  .foreground {
+    transform: translateZ(0);
+    z-index: 1;
+    height: 100vh; /* Adjust as needed */
+  }
+  /* Additional styling */
+  .room {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .gaming-chair {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .gaming-chair img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<div class="parallax-container">
+  <div class="layer bg">
+    <!-- Background elements -->
+  </div>
+  <div class="layer midground">
+    <!-- Midground elements -->
+  </div>
+  <div class="layer foreground">
+    <!-- Foreground elements -->
+    <div class="room">
+      <div class="gaming-chair">
+        <img src="Images/abt2.jpg" alt="Gaming Chair">
+        <h2>Gaming Room</h2>
+        <p>Your immersive gaming experience starts here!</p>
+        <!-- Add more content as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

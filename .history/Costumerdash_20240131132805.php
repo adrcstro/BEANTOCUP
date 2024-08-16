@@ -1487,7 +1487,7 @@ if ($loggedInCostumerID !== null && $loggedInUsername !== null) {
             echo '<h2>No Delivered Orders</h2>';
         }
         // Display the total amount outside the table with padding and centering
-        echo '<div style="padding: 20px; text-align: center;">Total Amount of Orders to Our Shop: ₱' . $totalAmount . '</div>';
+        echo '<div style="padding: 20px; text-align: center;">Total Amount of Orders to Our Shop: $' . $totalAmount . '</div>';
     } else {
         // No matching user found based on CostumerID
         echo "Error fetching user details.";

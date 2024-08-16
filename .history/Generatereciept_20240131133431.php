@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pdf->SetFont('courier', 'B', 12);
                 $pdf->Cell(0, 10, 'Payment Method: ' . $row['PaymentMethod'], 0, 0, 'L'); // Display Payment Method
                 $pdf->SetX($pdf->GetPageWidth() - $pdf->GetStringWidth('Amount: ' . $row['Amount']) - 30); // Set X position to align with the right margin
-                $pdf->Cell(0, 10, 'Total Amount: P' . $row['Amount'], 0, 1, 'L'); // Display Amount
+                $pdf->Cell(0, 10, 'Total Amount: $' . $row['Amount'], 0, 1, 'L'); // Display Amount
             }
 
             // Output the PDF to the browser

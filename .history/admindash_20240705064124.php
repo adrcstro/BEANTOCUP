@@ -35,7 +35,7 @@ require_once('connection.php');
             </button>
             <!-- Brand -->
             <a id="admidashnlogo"class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <h3>BEANTOCUP<i class="bi bi-cup-hot-fill"></i></h3>
+            <h3>BREWBUDDY<i class="bi bi-cup-hot-fill"></i></h3>
 
 
             </a>
@@ -139,7 +139,7 @@ function logout() {
                 <div class="mb-npx">
                     <div class="row align-items-center">
                         <div style="text-align: center;" class="col-12 mb-4 mb-sm-0"  id="headertextdash">
-                            <h1 class="h2 mb-0 ls-tight">BEANTOCUP ORDERING MANAGEMENT</h1>
+                            <h1 class="h2 mb-0 ls-tight">BEAN2CUP ORDERING MANAGEMENT</h1>
                         </div>
                         <!-- Actions -->
                       

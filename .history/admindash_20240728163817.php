@@ -35,7 +35,7 @@ require_once('connection.php');
             </button>
             <!-- Brand -->
             <a id="admidashnlogo"class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <h3>BEANTOCUP<i class="bi bi-cup-hot-fill"></i></h3>
+            <h3>BREWBUDDY<i class="bi bi-cup-hot-fill"></i></h3>
 
 
             </a>
